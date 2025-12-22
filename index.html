@@ -62,6 +62,8 @@
             border-radius: 10px;
             box-shadow: 0 5px 25px rgba(0,0,0,0.2);
             width: 350px;
+            max-height: 80vh;
+            overflow-y: auto;
             display: none;
             border: 2px solid #8B4513;
         }
@@ -89,7 +91,7 @@
         }
         
         .guest-list {
-            max-height: 400px;
+            max-height: 300px;
             overflow-y: auto;
             margin-top: 10px;
             border: 1px solid #ddd;
@@ -142,6 +144,17 @@
         
         .whatsapp-btn:hover {
             background: #128C7E;
+        }
+        
+        /* Warning untuk tamu bahwa ini link unik */
+        .guest-warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 0.85rem;
+            color: #856404;
         }
     </style>
     
@@ -236,6 +249,12 @@
                         <button class="btn btn-outline-auto btn-sm shadow rounded-pill px-3 py-1" style="font-size: 0.825rem;">
                             <i class="fa-solid fa-calendar-check me-2"></i>Save Google Calendar
                         </button>
+                        
+                        <!-- Warning untuk tamu bahwa ini link unik -->
+                        <div class="guest-warning mx-3 mt-3">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            <strong>Perhatian:</strong> Link ini khusus untuk Anda. Jangan bagikan ke orang lain.
+                        </div>
                         
                         <div class="d-flex justify-content-center align-items-center mt-4 mb-2">
                             <div class="mouse-animation border border-secondary border-2 rounded-5 px-2 py-1 opacity-50">
@@ -590,7 +609,7 @@
     <!-- Canvas untuk Confetti -->
     <canvas id="confetti-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999;"></canvas>
 
-    <!-- ==================== SCRIPT TAMBAHAN UNTUK NAMA TAMU & ADMIN ==================== -->
+    <!-- ==================== SCRIPT TAMBAHAN YANG SUDAH DIPERBAIKI ==================== -->
     <script>
         // ============================================
         // DAFTAR NAMA TAMU LENGKAP (39 ORANG)
@@ -623,11 +642,15 @@
         // FUNGSI UNTUK MENAMPILKAN NAMA TAMU
         // ============================================
         function displayGuestName() {
+            // Hapus parameter admin dari URL yang dilihat tamu
+            const currentUrl = new URL(window.location.href);
+            currentUrl.searchParams.delete('admin');
+            currentUrl.searchParams.delete('mode');
+            
             const guestName = getUrlParameter('nama') || 
                             getUrlParameter('name') || 
                             getUrlParameter('to') || 
                             getUrlParameter('untuk') ||
-                            localStorage.getItem('guestName') || 
                             'Tamu Undangan';
             
             const guestNameDiv = document.getElementById('guest-name');
@@ -639,44 +662,76 @@
                     </h3>
                 `;
                 
-                localStorage.setItem('guestName', guestName);
-                
-                // Isi otomatis di form komentar
                 const formName = document.getElementById('form-name');
-                if (formName && !formName.value) {
+                if (formName && !formName.value && guestName !== 'Tamu Undangan') {
                     formName.value = guestName;
                 }
             }
         }
 
         // ============================================
-        // FUNGSI UNTUK ADMIN PANEL (DIPERBAIKI)
+        // FUNGSI UNTUK ADMIN PANEL (DIPERBAIKI TOTAL)
         // ============================================
         function initAdminPanel() {
-            const isAdmin = getUrlParameter('admin') === 'true' || localStorage.getItem('isAdmin') === 'true';
+            // CEK SANGAT KETAT: hanya tampilkan jika ada password atau parameter khusus
+            const currentUrl = new URL(window.location.href);
+            const adminPassword = currentUrl.searchParams.get('admin');
+            const secretKey = 'admin123'; // Ganti dengan password yang diinginkan
             
-            if (isAdmin) {
-                localStorage.setItem('isAdmin', 'true');
+            // Jika ada parameter admin dengan password yang benar
+            if (adminPassword === secretKey) {
                 document.getElementById('adminToggle').style.display = 'block';
-                document.getElementById('adminPanel').style.display = 'block';
                 updateGuestList();
                 
+                // Setup toggle admin panel
                 document.getElementById('adminToggle').addEventListener('click', function() {
                     const panel = document.getElementById('adminPanel');
                     panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
                 });
                 
+                // Setup search
                 document.getElementById('searchGuest').addEventListener('input', function(e) {
                     updateGuestList(e.target.value);
                 });
+                
+                console.log('🔧 Mode Admin Aktif (Password Benar)');
+                
+                // Hapus password dari URL untuk keamanan
+                history.replaceState(null, '', removeParam('admin', window.location.href));
+            } else {
+                // SEMUA tamu biasa TIDAK melihat admin panel
+                document.getElementById('adminToggle').style.display = 'none';
+                document.getElementById('adminPanel').style.display = 'none';
+                
+                // Hapus parameter admin jika ada (untuk tamu biasa)
+                if (currentUrl.searchParams.has('admin')) {
+                    history.replaceState(null, '', removeParam('admin', window.location.href));
+                }
             }
         }
 
-        // FUNGSI UNTUK MEMBUAT URL TAMU YANG BERSIH
+        // Fungsi untuk menghapus parameter dari URL
+        function removeParam(key, sourceURL) {
+            const url = new URL(sourceURL);
+            url.searchParams.delete(key);
+            return url.toString();
+        }
+
+        // ============================================
+        // FUNGSI UNTUK MEMBUAT LINK UNIK UNTUK SETIAP TAMU
+        // ============================================
         function getGuestURL(guestName) {
-            // Buat URL baru tanpa parameter admin
+            // Buat URL baru TANPA parameter admin
             const url = new URL(DOMAIN);
-            url.searchParams.set('nama', guestName);
+            
+            // Encode nama tamu untuk URL
+            const encodedName = encodeURIComponent(guestName);
+            url.searchParams.set('nama', encodedName);
+            
+            // Tambahkan parameter unik (timestamp + hash sederhana)
+            const uniqueId = Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
+            url.searchParams.set('uid', uniqueId);
+            
             return url.toString();
         }
 
@@ -692,10 +747,12 @@
             }
             
             filteredGuests.forEach((guest, index) => {
-                // GUNAKAN URL BERSIH TANPA PARAMETER ADMIN
+                // SETIAP TAMU MENDAPAT LINK YANG BERBEDA!
                 const guestUrl = getGuestURL(guest);
-                const whatsappMessage = `Assalamualaikum ${guest},%0A%0AKami mengundang Anda untuk menghadiri acara pernikahan kami.%0A%0ALink undangan khusus: ${guestUrl}%0A%0ATerima kasih.%0AWassalamualaikum.`;
-                const whatsappUrl = `https://wa.me/?text=${whatsappMessage}`;
+                
+                // Pesan WhatsApp dengan link UNIK untuk tamu ini
+                const whatsappMessage = `Assalamualaikum ${guest},%0A%0AKami mengundang Anda untuk menghadiri acara pernikahan Iswanda & Yulia.%0A📅 Sabtu, 27 Desember 2025%0A📍 Belakang Apotek Nusa Emas, Kediri, Lombok Barat%0A%0A🔗 Link undangan khusus Anda:%0A${guestUrl}%0A%0ATerima kasih.%0AWassalamualaikum Warahmatullahi Wabarakatuh.`;
+                const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappMessage)}`;
                 
                 html += `
                     <div class="guest-item d-flex justify-content-between align-items-center">
@@ -704,12 +761,12 @@
                         </div>
                         <div>
                             <button class="btn btn-sm btn-outline-primary copy-btn" 
-                                    onclick="copyToClipboard('${guestUrl}', '${guest}')"
-                                    title="Salin link untuk ${guest}">
+                                    onclick="copyToClipboard('${guestUrl.replace(/'/g, "\\'")}', '${guest.replace(/'/g, "\\'")}')"
+                                    title="Salin link khusus untuk ${guest}">
                                 <i class="fas fa-link"></i>
                             </button>
                             <button class="whatsapp-btn" 
-                                    onclick="openWhatsApp('${whatsappUrl}')"
+                                    onclick="openWhatsApp('${whatsappUrl.replace(/'/g, "\\'")}')"
                                     title="Kirim via WhatsApp ke ${guest}">
                                 <i class="fab fa-whatsapp"></i>
                             </button>
@@ -731,25 +788,33 @@
         // ============================================
         function copyToClipboard(text, guestName) {
             navigator.clipboard.writeText(text).then(() => {
-                alert(`✓ Link untuk ${guestName} disalin!\n\n${text}`);
+                alert(`✓ Link khusus untuk ${guestName} telah disalin!\n\n${text}`);
             }).catch(err => {
                 console.error('Gagal menyalin: ', err);
-                alert('❌ Gagal menyalin link. Silakan copy manual.');
+                // Fallback untuk browser lama
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                alert(`✓ Link khusus untuk ${guestName} telah disalin!`);
             });
         }
 
         function copyAllLinks() {
-            let allLinks = `DAFTAR LINK UNDANGAN - Iswanda & Yulia\n`;
-            allLinks += `Tanggal: 27 Desember 2025\n`;
-            allLinks += `Domain: ${DOMAIN}\n\n`;
+            let allLinks = `📋 DAFTAR LINK UNDANGAN KHUSUS\n`;
+            allLinks += `👰‍♀️🤵‍♂️ Iswanda & Yulia\n`;
+            allLinks += `📅 Sabtu, 27 Desember 2025\n`;
+            allLinks += `🔗 Domain: ${DOMAIN}\n\n`;
             
             guestListData.forEach((guest, index) => {
                 const guestUrl = getGuestURL(guest);
-                allLinks += `${index + 1}. ${guest}\n${guestUrl}\n\n`;
+                allLinks += `[${index + 1}] ${guest}\n${guestUrl}\n\n`;
             });
             
             navigator.clipboard.writeText(allLinks).then(() => {
-                alert('✓ Semua link berhasil disalin!');
+                alert('✓ Semua link khusus berhasil disalin ke clipboard!');
             }).catch(err => {
                 const textarea = document.createElement('textarea');
                 textarea.value = allLinks;
@@ -757,12 +822,12 @@
                 textarea.select();
                 document.execCommand('copy');
                 document.body.removeChild(textarea);
-                alert('✓ Semua link berhasil disalin!');
+                alert('✓ Semua link khusus berhasil disalin!');
             });
         }
 
         function generateAllLinksCSV() {
-            let csvContent = "No,Nama Tamu,Link Undangan\n";
+            let csvContent = "No,Nama Tamu,Link Undangan Khusus\n";
             
             guestListData.forEach((guest, index) => {
                 const guestUrl = getGuestURL(guest);
@@ -773,7 +838,7 @@
             const url = URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
-            link.setAttribute('download', `daftar-link-undangan.csv`);
+            link.setAttribute('download', `daftar-link-undangan-${new Date().toISOString().slice(0,10)}.csv`);
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
@@ -782,23 +847,45 @@
         }
 
         function generateWhatsAppMessages() {
-            let messages = `PESAN WHATSAPP UNTUK SEMUA TAMU\n\n`;
+            let messages = `📱 PESAN WHATSAPP UNTUK SEMUA TAMU\n`;
+            messages += `=====================================\n\n`;
             
             guestListData.forEach((guest, index) => {
                 const guestUrl = getGuestURL(guest);
-                const message = `Assalamualaikum ${guest},\n\nKami mengundang Anda untuk menghadiri acara pernikahan kami:\n\nIswanda Muslim & Yulia Afrilianti\nSabtu, 27 Desember 2025\n\nLink undangan khusus Anda:\n${guestUrl}\n\nTerima kasih.\nWassalamualaikum.`;
+                const message = `Assalamualaikum ${guest},
+
+Kami mengundang Anda untuk menghadiri acara pernikahan kami:
+
+👰‍♀️🤵‍♂️ Iswanda Muslim & Yulia Afrilianti
+📅 Sabtu, 27 Desember 2025
+📍 Belakang Apotek Nusa Emas, Kediri, Lombok Barat
+
+🔗 Link undangan khusus Anda:
+${guestUrl}
+
+Terima kasih.
+Wassalamualaikum Warahmatullahi Wabarakatuh.`;
                 
                 messages += `--- [${index + 1}] Untuk: ${guest} ---\n`;
                 messages += `${message}\n\n`;
+                messages += `=====================================\n\n`;
             });
             
             navigator.clipboard.writeText(messages).then(() => {
-                alert('✓ Semua pesan WhatsApp disalin!');
+                alert('✓ Semua template pesan WhatsApp telah disalin ke clipboard!');
+            }).catch(err => {
+                const textarea = document.createElement('textarea');
+                textarea.value = messages;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                alert('✓ Semua template pesan WhatsApp telah disalin!');
             });
         }
 
         function openWhatsApp(url) {
-            window.open(url, '_blank');
+            window.open(url, '_blank', 'noopener,noreferrer');
         }
 
         // ============================================
@@ -808,13 +895,8 @@
             // Tampilkan nama tamu
             displayGuestName();
             
-            // Inisialisasi admin panel
+            // Inisialisasi admin panel DENGAN PASSWORD
             initAdminPanel();
-            
-            // Jika dari admin panel, tampilkan notifikasi
-            if (window.location.search.includes('admin=true')) {
-                console.log('🔧 Mode Admin Aktif');
-            }
             
             // ============================================
             // FUNGSI-FUNGSI LAINNYA (TIDAK BERUBAH)
