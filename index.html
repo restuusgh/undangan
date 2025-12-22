@@ -251,10 +251,10 @@
                         </button>
                         
                         <!-- Warning untuk tamu bahwa ini link unik -->
-                        <div class="guest-warning mx-3 mt-3">
+                        <!-- <div class="guest-warning mx-3 mt-3">
                             <i class="fas fa-exclamation-triangle me-2"></i>
                             <strong>Perhatian:</strong> Link ini khusus untuk Anda. Jangan bagikan ke orang lain.
-                        </div>
+                        </div> -->
                         
                         <div class="d-flex justify-content-center align-items-center mt-4 mb-2">
                             <div class="mouse-animation border border-secondary border-2 rounded-5 px-2 py-1 opacity-50">
@@ -641,34 +641,36 @@
         // ============================================
         // FUNGSI UNTUK MENAMPILKAN NAMA TAMU
         // ============================================
-        function displayGuestName() {
-            // Hapus parameter admin dari URL yang dilihat tamu
-            const currentUrl = new URL(window.location.href);
-            currentUrl.searchParams.delete('admin');
-            currentUrl.searchParams.delete('mode');
-            
-            const guestName = getUrlParameter('nama') || 
-                            getUrlParameter('name') || 
-                            getUrlParameter('to') || 
-                            getUrlParameter('untuk') ||
-                            'Tamu Undangan';
-            
-            const guestNameDiv = document.getElementById('guest-name');
-            if (guestNameDiv) {
-                guestNameDiv.innerHTML = `
-                    <p class="mb-2" style="font-size: 1.1rem;">Kepada Yth Bapak/Ibu/Saudara/i</p>
-                    <h3 class="guest-name-display mt-2">
-                        ${guestName}
-                    </h3>
-                `;
-                
-                const formName = document.getElementById('form-name');
-                if (formName && !formName.value && guestName !== 'Tamu Undangan') {
-                    formName.value = guestName;
-                }
-            }
+function displayGuestName() {
+    // Hapus parameter admin dari URL yang dilihat tamu
+    const currentUrl = new URL(window.location.href);
+    currentUrl.searchParams.delete('admin');
+    currentUrl.searchParams.delete('mode');
+    
+    let guestName = getUrlParameter('nama') || 
+                   getUrlParameter('name') || 
+                   getUrlParameter('to') || 
+                   getUrlParameter('untuk') ||
+                   'Tamu Undangan';
+    
+    // DECODE URL ENCODING (ubah %20 menjadi spasi, dll)
+    guestName = decodeURIComponent(guestName);
+    
+    const guestNameDiv = document.getElementById('guest-name');
+    if (guestNameDiv) {
+        guestNameDiv.innerHTML = `
+            <p class="mb-2" style="font-size: 1.1rem;">Kepada Yth Bapak/Ibu/Saudara/i</p>
+            <h3 class="guest-name-display mt-2">
+                ${guestName}
+            </h3>
+        `;
+        
+        const formName = document.getElementById('form-name');
+        if (formName && !formName.value && guestName !== 'Tamu Undangan') {
+            formName.value = guestName;
         }
-
+    }
+}
         // ============================================
         // FUNGSI UNTUK ADMIN PANEL (DIPERBAIKI TOTAL)
         // ============================================
