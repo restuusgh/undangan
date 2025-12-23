@@ -1,754 +1,1286 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id" data-bs-theme="auto">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Undangan Iswanda Muslim dan Yulia Afrilianti Online</title>
-    
-    <meta name="author" content="dewanakl">
-    <meta name="language" content="id">
-    <meta name="robots" content="index, follow, max-image-preview:large">
-    <meta property="og:title" content="Website Undangan Pernikahan Iswanda dan Yulia Online">
-    <meta property="og:description" content="Website Undangan Pernikahan Iswanda dan Yulia Secara Online">
-    
-    <link rel="icon" type="image/png" sizes="192x192" href="https://ulems.my.id/assets/images/icon-192x192.png">
-    
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha256-2FMn2Zx6PuH5tdBQDRNwrOo60ts5wWPC9R8jK67b3t4=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css" integrity="sha256-4rTIfo5GQTi/7UJqoyUJQKzxW8VN/YBH31+Cy+vTZj4=" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/guest.css">
-    
+
+    <meta name="author" content="dewanakl" />
+    <meta name="language" content="id" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta
+      property="og:title"
+      content="Website Undangan Pernikahan Iswanda dan Yulia Online"
+    />
+    <meta
+      property="og:description"
+      content="Website Undangan Pernikahan Iswanda dan Yulia Secara Online"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="https://ulems.my.id/assets/images/icon-192x192.png"
+    />
+
+    <link
+      rel="preconnect"
+      href="https://cdn.jsdelivr.net"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      integrity="sha256-2FMn2Zx6PuH5tdBQDRNwrOo60ts5wWPC9R8jK67b3t4="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"
+      integrity="sha256-4rTIfo5GQTi/7UJqoyUJQKzxW8VN/YBH31+Cy+vTZj4="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/guest.css" />
+
     <style>
-        /* Tambahan style untuk nama tamu */
-        .guest-name-display {
-            font-family: 'Josefin Sans', sans-serif;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-            animation: fadeInUp 0.8s ease;
-            min-height: 2.5rem;
-            padding: 0.8rem 1.5rem;
-            border-radius: 1.5rem;
-            background: linear-gradient(135deg, rgba(139, 69, 19, 0.15), rgba(255, 228, 196, 0.25));
-            display: inline-block;
-            margin-top: 0.5rem;
-            border: 2px solid rgba(139, 69, 19, 0.2);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            color: #5D4037;
-            font-weight: 600;
+      /* Tambahan style untuk nama tamu */
+      .guest-name-display {
+        font-family: "Josefin Sans", sans-serif;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        animation: fadeInUp 0.8s ease;
+        min-height: 2.5rem;
+        padding: 0.8rem 1.5rem;
+        border-radius: 1.5rem;
+        background: linear-gradient(
+          135deg,
+          rgba(139, 69, 19, 0.15),
+          rgba(255, 228, 196, 0.25)
+        );
+        display: inline-block;
+        margin-top: 0.5rem;
+        border: 2px solid rgba(139, 69, 19, 0.2);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        color: #5d4037;
+        font-weight: 600;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
         }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-        
-        /* Style untuk admin panel */
-        .admin-panel {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 9999;
-            background: rgba(255, 255, 255, 0.98);
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
-            width: 350px;
-            max-height: 80vh;
-            overflow-y: auto;
-            display: none;
-            border: 2px solid #8B4513;
+      }
+
+      /* Style untuk admin panel */
+      .admin-panel {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+        background: rgba(255, 255, 255, 0.98);
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+        width: 350px;
+        max-height: 80vh;
+        overflow-y: auto;
+        display: none;
+        border: 2px solid #8b4513;
+      }
+
+      .admin-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 10000;
+        background: #8b4513;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s;
+        display: none;
+      }
+
+      .admin-toggle:hover {
+        transform: scale(1.1);
+      }
+
+      .guest-list {
+        max-height: 300px;
+        overflow-y: auto;
+        margin-top: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        background: #f9f9f9;
+      }
+
+      .guest-item {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        transition: all 0.3s;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        background: white;
+      }
+
+      .guest-item:hover {
+        background: #e8f4ff;
+        transform: translateX(5px);
+      }
+
+      .copy-btn {
+        padding: 4px 10px;
+        font-size: 12px;
+        margin-left: 10px;
+      }
+
+      .heart-beat {
+        animation: heartBeat 1.5s ease infinite;
+        color: #e74c3c;
+      }
+
+      @keyframes heartBeat {
+        0%,
+        100% {
+          transform: scale(1);
         }
-        
-        .admin-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 10000;
-            background: #8B4513;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 20px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: transform 0.3s;
-            display: none;
+        50% {
+          transform: scale(1.1);
         }
-        
-        .admin-toggle:hover {
-            transform: scale(1.1);
-        }
-        
-        .guest-list {
-            max-height: 300px;
-            overflow-y: auto;
-            margin-top: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            background: #f9f9f9;
-        }
-        
-        .guest-item {
-            padding: 10px;
-            border-bottom: 1px solid #eee;
-            cursor: pointer;
-            transition: all 0.3s;
-            border-radius: 5px;
-            margin-bottom: 5px;
-            background: white;
-        }
-        
-        .guest-item:hover {
-            background: #e8f4ff;
-            transform: translateX(5px);
-        }
-        
-        .copy-btn {
-            padding: 4px 10px;
-            font-size: 12px;
-            margin-left: 10px;
-        }
-        
-        .heart-beat {
-            animation: heartBeat 1.5s ease infinite;
-            color: #e74c3c;
-        }
-        
-        @keyframes heartBeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        
-        .whatsapp-btn {
-            background: #25D366;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 12px;
-            margin-left: 5px;
-            cursor: pointer;
-        }
-        
-        .whatsapp-btn:hover {
-            background: #128C7E;
-        }
-        
-        /* Warning untuk tamu bahwa ini link unik */
-        .guest-warning {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 10px;
-            margin: 10px 0;
-            font-size: 0.85rem;
-            color: #856404;
-        }
+      }
+
+      .whatsapp-btn {
+        background: #25d366;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 12px;
+        margin-left: 5px;
+        cursor: pointer;
+      }
+
+      .whatsapp-btn:hover {
+        background: #128c7e;
+      }
+
+      /* Warning untuk tamu bahwa ini link unik */
+      .guest-warning {
+        background: #fff3cd;
+        border: 1px solid #ffeaa7;
+        border-radius: 8px;
+        padding: 10px;
+        margin: 10px 0;
+        font-size: 0.85rem;
+        color: #856404;
+      }
     </style>
-    
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha256-5P1JGBOIxI7FBAvT/mb1fCnI5n/NhQKzNUuW7Hq0fMc=" crossorigin="anonymous"></script>
+
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha256-5P1JGBOIxI7FBAvT/mb1fCnI5n/NhQKzNUuW7Hq0fMc="
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script type="module" src="./dist/guest.js"></script>
-</head>
+  </head>
 
-<body data-key="d9faced3377732b0edf19e90d1bde0cd5de04801c75eb41743" data-url="https://api.ulems.my.id/" data-audio="./assets/music/pure-love-304010.mp3" data-confetti="true" data-time="2025-12-27 09:30:00">
-
+  <body
+    data-key="d9faced3377732b0edf19e90d1bde0cd5de04801c75eb41743"
+    data-url="https://api.ulems.my.id/"
+    data-audio="./assets/music/pure-love-304010.mp3"
+    data-confetti="true"
+    data-time="2025-12-27 09:30:00"
+  >
     <!-- ==================== ADMIN PANEL ==================== -->
     <button class="admin-toggle" id="adminToggle" title="Admin Panel">
-        <i class="fas fa-user-cog"></i>
+      <i class="fas fa-user-cog"></i>
     </button>
-    
+
     <div class="admin-panel" id="adminPanel">
-        <h5><i class="fas fa-users me-2"></i>Daftar Tamu (39 Orang)</h5>
-        <p class="text-muted small mb-2">Klik nama untuk menyalin link khusus</p>
-        
-        <div class="input-group mb-3">
-            <input type="text" class="form-control form-control-sm" id="searchGuest" placeholder="Cari nama tamu...">
-            <button class="btn btn-sm btn-outline-secondary" onclick="clearSearch()">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        
-        <div class="guest-list" id="guestList">
-            <!-- Daftar tamu akan diisi oleh JavaScript -->
-        </div>
-        
-        <div class="mt-3">
-            <button class="btn btn-sm btn-success w-100 mb-2" onclick="copyAllLinks()">
-                <i class="fas fa-copy me-2"></i>Salin Semua Link
-            </button>
-            <button class="btn btn-sm btn-info w-100 mb-2" onclick="generateAllLinksCSV()">
-                <i class="fas fa-file-csv me-2"></i>Download CSV
-            </button>
-            <button class="btn btn-sm btn-warning w-100" onclick="generateWhatsAppMessages()">
-                <i class="fab fa-whatsapp me-2"></i>Generate Pesan WhatsApp
-            </button>
-        </div>
-        
-        <div class="mt-2 text-center">
-            <small class="text-muted">Domain: undangan-taupe.vercel.app</small>
-        </div>
+      <h5><i class="fas fa-users me-2"></i>Daftar Tamu (39 Orang)</h5>
+      <p class="text-muted small mb-2">Klik nama untuk menyalin link khusus</p>
+
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          id="searchGuest"
+          placeholder="Cari nama tamu..."
+        />
+        <button
+          class="btn btn-sm btn-outline-secondary"
+          onclick="clearSearch()"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="guest-list" id="guestList">
+        <!-- Daftar tamu akan diisi oleh JavaScript -->
+      </div>
+
+      <div class="mt-3">
+        <button
+          class="btn btn-sm btn-success w-100 mb-2"
+          onclick="copyAllLinks()"
+        >
+          <i class="fas fa-copy me-2"></i>Salin Semua Link
+        </button>
+        <button
+          class="btn btn-sm btn-info w-100 mb-2"
+          onclick="generateAllLinksCSV()"
+        >
+          <i class="fas fa-file-csv me-2"></i>Download CSV
+        </button>
+        <button
+          class="btn btn-sm btn-warning w-100"
+          onclick="generateWhatsAppMessages()"
+        >
+          <i class="fab fa-whatsapp me-2"></i>Generate Pesan WhatsApp
+        </button>
+      </div>
+
+      <div class="mt-2 text-center">
+        <small class="text-muted">Domain: undangan-taupe.vercel.app</small>
+      </div>
     </div>
     <!-- ==================== END ADMIN PANEL ==================== -->
 
     <!-- Root Invitation -->
     <div class="row m-0 p-0 opacity-0" id="root">
-        <!-- Desktop mode -->
-        <div class="sticky-top vh-100 d-none d-sm-block col-sm-5 col-md-6 col-lg-7 col-xl-8 col-xxl-9 overflow-y-hidden m-0 p-0">
-            <div class="position-relative bg-white-black d-flex justify-content-center align-items-center vh-100">
-                <!-- Slideshow Background -->
-                <div class="d-flex position-absolute w-100 h-100">
-                    <div class="position-relative overflow-hidden vw-100">
-                        <div class="position-absolute h-100 w-100 slide-desktop" style="opacity: 0;">
-                            <img src="./assets/images/Background.jpg" alt="bg" class="bg-cover-home" style="mask-image: none; opacity: 30%;">
-                        </div>
-                        <div class="position-absolute h-100 w-100 slide-desktop" style="opacity: 0;">
-                            <img src="https://picsum.photos/1000/1000?random=1" alt="bg" class="bg-cover-home" style="mask-image: none; opacity: 30%;">
-                        </div>
-                        <div class="position-absolute h-100 w-100 slide-desktop" style="opacity: 0;">
-                            <img src="https://picsum.photos/1000/1000?random=2" alt="bg" class="bg-cover-home" style="mask-image: none; opacity: 30%;">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center p-4 bg-overlay-auto rounded-5">
-                    <h2 class="font-esthetic mb-4" style="font-size: 2rem;">Iswanda &amp; Yulia</h2>
-                    <p class="m-0" style="font-size: 1rem;">Sabtu, 27 Desember 2025</p>
-                </div>
+      <!-- Desktop mode -->
+      <div
+        class="sticky-top vh-100 d-none d-sm-block col-sm-5 col-md-6 col-lg-7 col-xl-8 col-xxl-9 overflow-y-hidden m-0 p-0"
+      >
+        <div
+          class="position-relative bg-white-black d-flex justify-content-center align-items-center vh-100"
+        >
+          <!-- Slideshow Background -->
+          <div class="d-flex position-absolute w-100 h-100">
+            <div class="position-relative overflow-hidden vw-100">
+              <div
+                class="position-absolute h-100 w-100 slide-desktop"
+                style="opacity: 0"
+              >
+                <img
+                  src="./assets/images/Background.jpg"
+                  alt="bg"
+                  class="bg-cover-home"
+                  style="mask-image: none; opacity: 30%"
+                />
+              </div>
+              <div
+                class="position-absolute h-100 w-100 slide-desktop"
+                style="opacity: 0"
+              >
+                <img
+                  src="https://picsum.photos/1000/1000?random=1"
+                  alt="bg"
+                  class="bg-cover-home"
+                  style="mask-image: none; opacity: 30%"
+                />
+              </div>
+              <div
+                class="position-absolute h-100 w-100 slide-desktop"
+                style="opacity: 0"
+              >
+                <img
+                  src="https://picsum.photos/1000/1000?random=2"
+                  alt="bg"
+                  class="bg-cover-home"
+                  style="mask-image: none; opacity: 30%"
+                />
+              </div>
             </div>
-        </div>
+          </div>
 
-        <!-- Smartphone mode -->
-        <div class="col-sm-7 col-md-6 col-lg-5 col-xl-4 col-xxl-3 m-0 p-0">
-            <main data-bs-spy="scroll" data-bs-target="#navbar-menu" data-bs-root-margin="25% 0% 0% 0%" data-bs-smooth-scroll="true" tabindex="0">
-                
-                <!-- Home -->
-                <section id="home" class="bg-light-dark position-relative overflow-hidden p-0 m-0">
-                    <img src="./assets/images/Background.jpg" alt="bg" class="position-absolute opacity-25 top-50 start-50 translate-middle bg-cover-home">
-                    
-                    <div class="position-relative text-center bg-overlay-auto" style="background-color: unset;">
-                        <h1 class="font-esthetic pt-5 pb-4 fw-medium" style="font-size: 2.25rem;">Undangan Pernikahan</h1>
-                        
-                        <img src="./assets/images/Background.jpg" alt="couple" class="img-center-crop rounded-circle border border-3 border-light shadow my-4 mx-auto cursor-pointer">
-                        
-                        <h2 class="font-esthetic my-4" style="font-size: 2.25rem;">Iswanda &amp; Yulia</h2>
-                        <p class="my-2" style="font-size: 1.25rem;">Sabtu, 27 Desember 2025</p>
-                        
-                        <!-- <button class="btn btn-outline-auto btn-sm shadow rounded-pill px-3 py-1" style="font-size: 0.825rem;">
+          <div class="text-center p-4 bg-overlay-auto rounded-5">
+            <h2 class="font-esthetic mb-4" style="font-size: 2rem">
+              Iswanda &amp; Yulia
+            </h2>
+            <p class="m-0" style="font-size: 1rem">Sabtu, 27 Desember 2025</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Smartphone mode -->
+      <div class="col-sm-7 col-md-6 col-lg-5 col-xl-4 col-xxl-3 m-0 p-0">
+        <main
+          data-bs-spy="scroll"
+          data-bs-target="#navbar-menu"
+          data-bs-root-margin="25% 0% 0% 0%"
+          data-bs-smooth-scroll="true"
+          tabindex="0"
+        >
+          <!-- Home -->
+          <section
+            id="home"
+            class="bg-light-dark position-relative overflow-hidden p-0 m-0"
+          >
+            <img
+              src="./assets/images/Background.jpg"
+              alt="bg"
+              class="position-absolute opacity-25 top-50 start-50 translate-middle bg-cover-home"
+            />
+
+            <div
+              class="position-relative text-center bg-overlay-auto"
+              style="background-color: unset"
+            >
+              <h1
+                class="font-esthetic pt-5 pb-4 fw-medium"
+                style="font-size: 2.25rem"
+              >
+                Undangan Pernikahan
+              </h1>
+
+              <img
+                src="./assets/images/Background.jpg"
+                alt="couple"
+                class="img-center-crop rounded-circle border border-3 border-light shadow my-4 mx-auto cursor-pointer"
+              />
+
+              <h2 class="font-esthetic my-4" style="font-size: 2.25rem">
+                Iswanda &amp; Yulia
+              </h2>
+              <p class="my-2" style="font-size: 1.25rem">
+                Sabtu, 27 Desember 2025
+              </p>
+
+              <!-- <button class="btn btn-outline-auto btn-sm shadow rounded-pill px-3 py-1" style="font-size: 0.825rem;">
                             <i class="fa-solid fa-calendar-check me-2"></i>Save Google Calendar
                         </button> -->
-                        
-                        <!-- Warning untuk tamu bahwa ini link unik -->
-                        <!-- <div class="guest-warning mx-3 mt-3">
+
+              <!-- Warning untuk tamu bahwa ini link unik -->
+              <!-- <div class="guest-warning mx-3 mt-3">
                             <i class="fas fa-exclamation-triangle me-2"></i>
                             <strong>Perhatian:</strong> Link ini khusus untuk Anda. Jangan bagikan ke orang lain.
                         </div> -->
-                        
-                        <div class="d-flex justify-content-center align-items-center mt-4 mb-2">
-                            <div class="mouse-animation border border-secondary border-2 rounded-5 px-2 py-1 opacity-50">
-                                <div class="scroll-animation rounded-4 bg-secondary"></div>
-                            </div>
-                        </div>
-                        <p class="pb-4 m-0 text-secondary" style="font-size: 0.825rem;">Scroll Down</p>
-                    </div>
-                </section>
 
-                <!-- Wave Separator -->
-                <div class="svg-wrapper">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="color-theme-svg no-gap-bottom">
-                        <path fill="currentColor" fill-opacity="1" d="M0,160L48,144C96,128,192,96,288,106.7C384,117,480,171,576,165.3C672,160,768,96,864,96C960,96,1056,160,1152,154.7C1248,149,1344,75,1392,37.3L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-                    </svg>
+              <div
+                class="d-flex justify-content-center align-items-center mt-4 mb-2"
+              >
+                <div
+                  class="mouse-animation border border-secondary border-2 rounded-5 px-2 py-1 opacity-50"
+                >
+                  <div class="scroll-animation rounded-4 bg-secondary"></div>
+                </div>
+              </div>
+              <p class="pb-4 m-0 text-secondary" style="font-size: 0.825rem">
+                Scroll Down
+              </p>
+            </div>
+          </section>
+
+          <!-- Wave Separator -->
+          <div class="svg-wrapper">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1440 320"
+              class="color-theme-svg no-gap-bottom"
+            >
+              <path
+                fill="currentColor"
+                fill-opacity="1"
+                d="M0,160L48,144C96,128,192,96,288,106.7C384,117,480,171,576,165.3C672,160,768,96,864,96C960,96,1056,160,1152,154.7C1248,149,1344,75,1392,37.3L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+              ></path>
+            </svg>
+          </div>
+
+          <!-- Bride -->
+          <section class="bg-white-black text-center" id="bride">
+            <h2 class="font-arabic py-4 m-0" style="font-size: 2rem">
+              بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ
+            </h2>
+            <h2 class="font-esthetic py-4 m-0" style="font-size: 2rem">
+              Assalamualaikum Warahmatullahi Wabarakatuh
+            </h2>
+            <p class="pb-4 px-2 m-0" style="font-size: 0.95rem">
+              Tanpa mengurangi rasa hormat, kami mengundang Anda untuk berkenan
+              menghadiri acara pernikahan kami:
+            </p>
+
+            <div class="overflow-x-hidden pb-4">
+              <!-- Mempelai Pria dengan Animasi Love -->
+              <div class="position-relative">
+                <!-- Love animation top right -->
+                <div class="position-absolute" style="top: 0%; right: 5%">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    fill="currentColor"
+                    class="opacity-50"
+                    data-time="500"
+                    data-class="animate-love"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
+                    />
+                  </svg>
                 </div>
 
-                <!-- Bride -->
-                <section class="bg-white-black text-center" id="bride">
-                    <h2 class="font-arabic py-4 m-0" style="font-size: 2rem;">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</h2>
-                    <h2 class="font-esthetic py-4 m-0" style="font-size: 2rem;">Assalamualaikum Warahmatullahi Wabarakatuh</h2>
-                    <p class="pb-4 px-2 m-0" style="font-size: 0.95rem;">Tanpa mengurangi rasa hormat, kami mengundang Anda untuk berkenan menghadiri acara pernikahan kami:</p>
-
-                    <div class="overflow-x-hidden pb-4">
-                        <!-- Mempelai Pria dengan Animasi Love -->
-                        <div class="position-relative">
-                            <!-- Love animation top right -->
-                            <div class="position-absolute" style="top: 0%; right: 5%;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="opacity-50" data-time="500" data-class="animate-love" viewBox="0 0 16 16">
-                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-                                </svg>
-                            </div>
-
-                            <div data-aos="fade-right" data-aos-duration="2000" class="pb-1">
-                                <img src="./assets/images/iswanda.jpg" alt="groom" class="img-center-crop rounded-circle border border-3 border-light shadow my-4 mx-auto cursor-pointer">
-                                <h2 class="font-esthetic m-0" style="font-size: 2.125rem;">Iswanda Muslim</h2>
-                                <p class="mt-3 mb-1" style="font-size: 1.25rem;">Putra Pertama</p>
-                                <p class="mb-0" style="font-size: 0.95rem;">Bapak ALM H.Abdul Muis</p>
-                                <p class="mb-0" style="font-size: 0.95rem;">dan Ibu Misnawati</p>
-                            </div>
-
-                            <!-- Love animation bottom left -->
-                            <div class="position-absolute" style="top: 90%; left: 5%;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="opacity-50" data-time="2000" data-class="animate-love" viewBox="0 0 16 16">
-                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-                                </svg>
-                            </div>
-                        </div>
-
-                        <h2 class="font-esthetic mt-4" style="font-size: 4.5rem;">&amp;</h2>
-
-                        <!-- Mempelai Wanita dengan Animasi Love -->
-                        <div class="position-relative">
-                            <!-- Love animation top right -->
-                            <div class="position-absolute" style="top: 0%; right: 5%;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="opacity-50" data-time="3000" data-class="animate-love" viewBox="0 0 16 16">
-                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-                                </svg>
-                            </div>
-
-                            <div data-aos="fade-left" data-aos-duration="2000" class="pb-1">
-                                <img src="./assets/images/Yulia.jpg" alt="bride" class="img-center-crop rounded-circle border border-3 border-light shadow my-4 mx-auto cursor-pointer">
-                                <h2 class="font-esthetic m-0" style="font-size: 2.125rem;">Yulia Afrilianti</h2>
-                                <p class="mt-3 mb-1" style="font-size: 1.25rem;">Putri Pertama</p>
-                                <p class="mb-0" style="font-size: 0.95rem;">Bapak Hadi</p>
-                                <p class="mb-0" style="font-size: 0.95rem;">dan Ibu Sri Maryati</p>
-                            </div>
-
-                            <!-- Love animation bottom left -->
-                            <div class="position-absolute" style="top: 90%; left: 5%;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="opacity-50" data-time="2500" data-class="animate-love" viewBox="0 0 16 16">
-                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Wave Separator -->
-                <div class="svg-wrapper">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="color-theme-svg no-gap-bottom">
-                        <path fill="currentColor" fill-opacity="1" d="M0,192L40,181.3C80,171,160,149,240,149.3C320,149,400,171,480,165.3C560,160,640,128,720,128C800,128,880,160,960,186.7C1040,213,1120,235,1200,218.7C1280,203,1360,149,1400,122.7L1440,96L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path>
-                    </svg>
+                <div
+                  data-aos="fade-right"
+                  data-aos-duration="2000"
+                  class="pb-1"
+                >
+                  <img
+                    src="./assets/images/iswanda.jpg"
+                    alt="groom"
+                    class="img-center-crop rounded-circle border border-3 border-light shadow my-4 mx-auto cursor-pointer"
+                  />
+                  <h2 class="font-esthetic m-0" style="font-size: 2.125rem">
+                    Iswanda Muslim
+                  </h2>
+                  <p class="mt-3 mb-1" style="font-size: 1.25rem">
+                    Putra Pertama
+                  </p>
+                  <p class="mb-0" style="font-size: 0.95rem">
+                    Bapak ALM H.Abdul Muis
+                  </p>
+                  <p class="mb-0" style="font-size: 0.95rem">
+                    dan Ibu Misnawati
+                  </p>
                 </div>
 
-                <!-- Wedding Date -->
-                <section class="bg-white-black pb-2" id="wedding-date">
-                    <div class="container text-center">
-                        <h2 class="font-esthetic py-4 m-0" style="font-size: 2.25rem;">Moment Bahagia</h2>
+                <!-- Love animation bottom left -->
+                <div class="position-absolute" style="top: 90%; left: 5%">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    fill="currentColor"
+                    class="opacity-50"
+                    data-time="2000"
+                    data-class="animate-love"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
+                    />
+                  </svg>
+                </div>
+              </div>
 
-                        <div class="border rounded-pill shadow py-2 px-4 mt-2 mb-4">
-                            <div class="row justify-content-center">
-                                <div class="col-3 p-1">
-                                    <p class="d-inline m-0 p-0" style="font-size: 1.25rem;" id="day">0</p>
-                                    <small class="ms-1 me-0 my-0 p-0 d-inline">Hari</small>
-                                </div>
-                                <div class="col-3 p-1">
-                                    <p class="d-inline m-0 p-0" style="font-size: 1.25rem;" id="hour">0</p>
-                                    <small class="ms-1 me-0 my-0 p-0 d-inline">Jam</small>
-                                </div>
-                                <div class="col-3 p-1">
-                                    <p class="d-inline m-0 p-0" style="font-size: 1.25rem;" id="minute">0</p>
-                                    <small class="ms-1 me-0 my-0 p-0 d-inline">Menit</small>
-                                </div>
-                                <div class="col-3 p-1">
-                                    <p class="d-inline m-0 p-0" style="font-size: 1.25rem;" id="second">0</p>
-                                    <small class="ms-1 me-0 my-0 p-0 d-inline">Detik</small>
-                                </div>
-                            </div>
-                        </div>
+              <h2 class="font-esthetic mt-4" style="font-size: 4.5rem">
+                &amp;
+              </h2>
 
-                        <p class="py-2 m-0" style="font-size: 0.95rem;">Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, insyaAllah kami akan menyelenggarakan acara:</p>
-
-                        <!-- Love animation -->
-                        <div class="position-relative">
-                            <div class="position-absolute" style="top: 0%; right: 5%;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="opacity-50" data-time="3000" data-class="animate-love" viewBox="0 0 16 16">
-                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-                                </svg>
-                            </div>
-                        </div>
-
-                        <div class="overflow-x-hidden">
-                            <div class="py-2" data-aos="fade-right" data-aos-duration="1500">
-                                <h2 class="font-esthetic m-0 py-2" style="font-size: 2rem;">Akad & Resepsi</h2>
-                                <p style="font-size: 0.95rem;">Pukul 09.00 WITA - Selesai</p>
-                            </div>
-                        </div>
-
-                        <!-- Love animation -->
-                        <div class="position-relative">
-                            <div class="position-absolute" style="top: 0%; left: 5%;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="opacity-50" data-time="2000" data-class="animate-love" viewBox="0 0 16 16">
-                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-                                </svg>
-                            </div>
-                        </div>
-
-                        <div class="py-2" data-aos="fade-down" data-aos-duration="1500">
-                            <a href="https://maps.app.goo.gl/FoVT8St2BmYzjY8VA?g_st=ipc" target="_blank" class="btn btn-outline-auto btn-sm rounded-pill shadow mb-2 px-3">
-                                <i class="fa-solid fa-map-location-dot me-2"></i>Lihat Google Maps
-                            </a>
-                            <small class="d-block my-1">Belakang Apotek Nusa Emas, Jl. Tgh. Ibrahim Al-Khalidy, Kediri, Kec. Kediri, Kabupaten Lombok Barat, Nusa Tenggara Bar. 83362.</small>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Gallery -->
-                <section class="bg-white-black pb-5 pt-3" id="gallery">
-                    <div class="container">
-                        <div class="border rounded-5 shadow p-3">
-                            <h2 class="font-esthetic text-center py-2 m-0" style="font-size: 2.25rem;">Galeri</h2>
-                            
-                            <div id="carousel-gallery" data-aos="fade-up" data-aos-duration="1500" class="carousel slide mt-4" data-bs-ride="carousel">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carousel-gallery" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                    <button type="button" data-bs-target="#carousel-gallery" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carousel-gallery" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                </div>
-                                
-                                <div class="carousel-inner rounded-4">
-                                    <div class="carousel-item active">
-                                        <img src="./assets/images/Background.jpg" alt="gallery 1" class="d-block w-100 img-fluid rounded-4">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./assets/images/Galeri1.jpg" alt="gallery 2" class="d-block w-100 img-fluid rounded-4">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./assets/images/Galeri2.jpg" alt="gallery 3" class="d-block w-100 img-fluid rounded-4">
-                                    </div>
-                                </div>
-                                
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-gallery" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel-gallery" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Wave Separator -->
-                <div class="svg-wrapper">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="color-theme-svg no-gap-bottom">
-                        <path fill="currentColor" fill-opacity="1" d="M0,96L30,106.7C60,117,120,139,180,154.7C240,171,300,181,360,186.7C420,192,480,192,540,181.3C600,171,660,149,720,154.7C780,160,840,192,900,208C960,224,1020,224,1080,208C1140,192,1200,160,1260,138.7C1320,117,1380,107,1410,101.3L1440,96L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z"></path>
-                    </svg>
+              <!-- Mempelai Wanita dengan Animasi Love -->
+              <div class="position-relative">
+                <!-- Love animation top right -->
+                <div class="position-absolute" style="top: 0%; right: 5%">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    fill="currentColor"
+                    class="opacity-50"
+                    data-time="3000"
+                    data-class="animate-love"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
+                    />
+                  </svg>
                 </div>
 
-                <!-- Love Gift -->
-                <section class="bg-light-dark pb-3">
-                    <div class="container text-center">
-                        <h2 class="font-esthetic pt-3 mb-4" style="font-size: 2.25rem;">Love Gift</h2>
-                        <p class="mb-1" style="font-size: 0.95rem;">Dengan hormat, bagi Anda yang ingin memberikan tanda kasih kepada kami, dapat melalui:</p>
-
-                        <div class="bg-theme-auto rounded-4 shadow p-3 mx-4 mt-4 text-start" data-aos="fade-up" data-aos-duration="1500">
-                            <i class="fa-solid fa-gift fa-lg"></i>
-                            <p class="d-inline">Gift</p>
-                            <div class="mt-2">
-                                <p class="m-0 p-0" style="font-size: 0.95rem;"><i class="fa-regular fa-user fa-sm me-1"></i>Iswanda</p>
-                                <p class="m-0 p-0 mt-2" style="font-size: 0.85rem;"><i class="fa-solid fa-phone-volume me-1"></i>0812345678</p>
-                                <p class="my-0 p-0 mt-2" style="font-size: 0.85rem;"><i class="fa-solid fa-location-dot me-1"></i>Belakang Apotek Nusa Emas, Kediri, Lombok Barat</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Comment -->
-                <section class="bg-light-dark my-0 pb-0 pt-3" id="comment">
-                    <div class="container">
-                        <div class="border rounded-5 shadow p-3 mb-2">
-                            <h2 class="font-esthetic text-center mt-2 mb-4" style="font-size: 2.25rem;">Ucapan &amp; Doa</h2>
-
-                            <div class="mb-3">
-                                <label for="form-name" class="form-label my-1"><i class="fa-solid fa-person me-2"></i>Nama</label>
-                                <input type="text" class="form-control shadow-sm rounded-4" id="form-name" placeholder="Isikan Nama Anda">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="form-presence" class="form-label my-1"><i class="fa-solid fa-person-circle-question me-2"></i>Presensi</label>
-                                <select class="form-select shadow-sm rounded-4" id="form-presence">
-                                    <option value="0" selected>Konfirmasi Presensi</option>
-                                    <option value="1">&#9989; Datang</option>
-                                    <option value="2">&#10060; Berhalangan</option>
-                                </select>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="form-comment" class="form-label my-1"><i class="fa-solid fa-comment me-2"></i>Ucapan &amp; Doa</label>
-                                <textarea class="form-control shadow-sm rounded-4" id="form-comment" rows="4" placeholder="Tulis Ucapan dan Doa"></textarea>
-                            </div>
-
-                            <div class="d-grid">
-                                <button class="btn btn-primary btn-sm rounded-4 shadow m-1" id="btn-send-comment">
-                                    <i class="fa-solid fa-paper-plane me-2"></i>Send
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="py-3" id="comments"></div>
-                    </div>
-                </section>
-
-                <!-- Wave Separator -->
-                <div class="svg-wrapper">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="color-theme-svg no-gap-bottom">
-                        <path fill="currentColor" fill-opacity="1" d="M0,224L34.3,234.7C68.6,245,137,267,206,266.7C274.3,267,343,245,411,234.7C480,224,549,224,617,213.3C685.7,203,754,181,823,197.3C891.4,213,960,267,1029,266.7C1097.1,267,1166,213,1234,192C1302.9,171,1371,181,1406,186.7L1440,192L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path>
-                    </svg>
+                <div data-aos="fade-left" data-aos-duration="2000" class="pb-1">
+                  <img
+                    src="./assets/images/Yulia.jpg"
+                    alt="bride"
+                    class="img-center-crop rounded-circle border border-3 border-light shadow my-4 mx-auto cursor-pointer"
+                  />
+                  <h2 class="font-esthetic m-0" style="font-size: 2.125rem">
+                    Yulia Afrilianti
+                  </h2>
+                  <p class="mt-3 mb-1" style="font-size: 1.25rem">
+                    Putri Pertama
+                  </p>
+                  <p class="mb-0" style="font-size: 0.95rem">Bapak Hadi</p>
+                  <p class="mb-0" style="font-size: 0.95rem">
+                    dan Ibu Sri Maryati
+                  </p>
                 </div>
 
-                <!-- End Of Invitation -->
-                <section class="bg-white-black py-2 no-gap-bottom">
-                    <div class="container text-center">
-                        <p class="pb-2 pt-4" style="font-size: 0.95rem;">Terima kasih atas perhatian dan doa restu Anda, yang menjadi kebahagiaan serta kehormatan besar bagi kami.</p>
-                        <h2 class="font-esthetic" style="font-size: 2rem;">Wassalamualaikum Warahmatullahi Wabarakatuh</h2>
-                        <h2 class="font-arabic pt-4" style="font-size: 2rem;">اَلْحَمْدُ لِلّٰهِ رَبِّ الْعٰلَمِيْنَۙ</h2>
-                        <hr class="my-3">
-                    </div>
-                </section>
-            </main>
+                <!-- Love animation bottom left -->
+                <div class="position-absolute" style="top: 90%; left: 5%">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    fill="currentColor"
+                    class="opacity-50"
+                    data-time="2500"
+                    data-class="animate-love"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </section>
 
-            <!-- Navbar Bottom -->
-            <nav class="navbar navbar-expand sticky-bottom rounded-top-4 border-top p-0" id="navbar-menu">
-                <ul class="navbar-nav nav-justified w-100 align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">
-                            <i class="fa-solid fa-house"></i>
-                            <span class="d-block" style="font-size: 0.7rem;">Home</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#bride">
-                            <i class="fa-solid fa-user-group"></i>
-                            <span class="d-block" style="font-size: 0.7rem;">Mempelai</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#wedding-date">
-                            <i class="fa-solid fa-calendar-check"></i>
-                            <span class="d-block" style="font-size: 0.7rem;">Tanggal</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#gallery">
-                            <i class="fa-solid fa-images"></i>
-                            <span class="d-block" style="font-size: 0.7rem;">Galeri</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#comment">
-                            <i class="fa-solid fa-comments"></i>
-                            <span class="d-block" style="font-size: 0.7rem;">Ucapan</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+          <!-- Wave Separator -->
+          <div class="svg-wrapper">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1440 320"
+              class="color-theme-svg no-gap-bottom"
+            >
+              <path
+                fill="currentColor"
+                fill-opacity="1"
+                d="M0,192L40,181.3C80,171,160,149,240,149.3C320,149,400,171,480,165.3C560,160,640,128,720,128C800,128,880,160,960,186.7C1040,213,1120,235,1200,218.7C1280,203,1360,149,1400,122.7L1440,96L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"
+              ></path>
+            </svg>
+          </div>
+
+          <!-- Wedding Date -->
+          <section class="bg-white-black pb-2" id="wedding-date">
+            <div class="container text-center">
+              <h2 class="font-esthetic py-4 m-0" style="font-size: 2.25rem">
+                Moment Bahagia
+              </h2>
+
+              <div class="border rounded-pill shadow py-2 px-4 mt-2 mb-4">
+                <div class="row justify-content-center">
+                  <div class="col-3 p-1">
+                    <p
+                      class="d-inline m-0 p-0"
+                      style="font-size: 1.25rem"
+                      id="day"
+                    >
+                      0
+                    </p>
+                    <small class="ms-1 me-0 my-0 p-0 d-inline">Hari</small>
+                  </div>
+                  <div class="col-3 p-1">
+                    <p
+                      class="d-inline m-0 p-0"
+                      style="font-size: 1.25rem"
+                      id="hour"
+                    >
+                      0
+                    </p>
+                    <small class="ms-1 me-0 my-0 p-0 d-inline">Jam</small>
+                  </div>
+                  <div class="col-3 p-1">
+                    <p
+                      class="d-inline m-0 p-0"
+                      style="font-size: 1.25rem"
+                      id="minute"
+                    >
+                      0
+                    </p>
+                    <small class="ms-1 me-0 my-0 p-0 d-inline">Menit</small>
+                  </div>
+                  <div class="col-3 p-1">
+                    <p
+                      class="d-inline m-0 p-0"
+                      style="font-size: 1.25rem"
+                      id="second"
+                    >
+                      0
+                    </p>
+                    <small class="ms-1 me-0 my-0 p-0 d-inline">Detik</small>
+                  </div>
+                </div>
+              </div>
+
+              <p class="py-2 m-0" style="font-size: 0.95rem">
+                Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala,
+                insyaAllah kami akan menyelenggarakan acara:
+              </p>
+
+              <!-- Love animation -->
+              <div class="position-relative">
+                <div class="position-absolute" style="top: 0%; right: 5%">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    fill="currentColor"
+                    class="opacity-50"
+                    data-time="3000"
+                    data-class="animate-love"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
+                    />
+                  </svg>
+                </div>
+              </div>
+
+              <div class="overflow-x-hidden">
+                <div
+                  class="py-2"
+                  data-aos="fade-right"
+                  data-aos-duration="1500"
+                >
+                  <h2 class="font-esthetic m-0 py-2" style="font-size: 2rem">
+                    Akad
+                  </h2>
+                  <p style="font-size: 0.95rem">Pukul 09.00 - 10.00 WITA</p>
+                </div>
+
+                <div class="py-2" data-aos="fade-left" data-aos-duration="1500">
+                  <h2 class="font-esthetic m-0 py-2" style="font-size: 2rem">
+                    Resepsi
+                  </h2>
+                  <p style="font-size: 0.95rem">Pukul 10.30 WITA - Selesai</p>
+                </div>
+              </div>
+
+              <!-- Love animation -->
+              <div class="position-relative">
+                <div class="position-absolute" style="top: 0%; left: 5%">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    fill="currentColor"
+                    class="opacity-50"
+                    data-time="2000"
+                    data-class="animate-love"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
+                    />
+                  </svg>
+                </div>
+              </div>
+
+              <div class="py-2" data-aos="fade-down" data-aos-duration="1500">
+                <a
+                  href="https://maps.app.goo.gl/FoVT8St2BmYzjY8VA?g_st=ipc"
+                  target="_blank"
+                  class="btn btn-outline-auto btn-sm rounded-pill shadow mb-2 px-3"
+                >
+                  <i class="fa-solid fa-map-location-dot me-2"></i>Lihat Google
+                  Maps
+                </a>
+                <small class="d-block my-1"
+                  >Belakang Apotek Nusa Emas, Jl. Tgh. Ibrahim Al-Khalidy,
+                  Kediri, Kec. Kediri, Kabupaten Lombok Barat, Nusa Tenggara
+                  Bar. 83362.</small
+                >
+              </div>
+            </div>
+          </section>
+
+          <!-- Gallery -->
+          <section class="bg-white-black pb-5 pt-3" id="gallery">
+            <div class="container">
+              <div class="border rounded-5 shadow p-3">
+                <h2
+                  class="font-esthetic text-center py-2 m-0"
+                  style="font-size: 2.25rem"
+                >
+                  Galeri
+                </h2>
+
+                <div
+                  id="carousel-gallery"
+                  data-aos="fade-up"
+                  data-aos-duration="1500"
+                  class="carousel slide mt-4"
+                  data-bs-ride="carousel"
+                >
+                  <div class="carousel-indicators">
+                    <button
+                      type="button"
+                      data-bs-target="#carousel-gallery"
+                      data-bs-slide-to="0"
+                      class="active"
+                      aria-current="true"
+                      aria-label="Slide 1"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carousel-gallery"
+                      data-bs-slide-to="1"
+                      aria-label="Slide 2"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carousel-gallery"
+                      data-bs-slide-to="2"
+                      aria-label="Slide 3"
+                    ></button>
+                  </div>
+
+                  <div class="carousel-inner rounded-4">
+                    <div class="carousel-item active">
+                      <img
+                        src="./assets/images/Background.jpg"
+                        alt="gallery 1"
+                        class="d-block w-100 img-fluid rounded-4"
+                      />
+                    </div>
+                    <div class="carousel-item">
+                      <img
+                        src="./assets/images/Galeri1.jpg"
+                        alt="gallery 2"
+                        class="d-block w-100 img-fluid rounded-4"
+                      />
+                    </div>
+                    <div class="carousel-item">
+                      <img
+                        src="./assets/images/Galeri2.jpg"
+                        alt="gallery 3"
+                        class="d-block w-100 img-fluid rounded-4"
+                      />
+                    </div>
+                  </div>
+
+                  <button
+                    class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#carousel-gallery"
+                    data-bs-slide="prev"
+                  >
+                    <span
+                      class="carousel-control-prev-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button
+                    class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#carousel-gallery"
+                    data-bs-slide="next"
+                  >
+                    <span
+                      class="carousel-control-next-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Wave Separator -->
+          <div class="svg-wrapper">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1440 320"
+              class="color-theme-svg no-gap-bottom"
+            >
+              <path
+                fill="currentColor"
+                fill-opacity="1"
+                d="M0,96L30,106.7C60,117,120,139,180,154.7C240,171,300,181,360,186.7C420,192,480,192,540,181.3C600,171,660,149,720,154.7C780,160,840,192,900,208C960,224,1020,224,1080,208C1140,192,1200,160,1260,138.7C1320,117,1380,107,1410,101.3L1440,96L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z"
+              ></path>
+            </svg>
+          </div>
+
+          <!-- Love Gift -->
+          <section class="bg-light-dark pb-3">
+            <div class="container text-center">
+              <h2 class="font-esthetic pt-3 mb-4" style="font-size: 2.25rem">
+                Love Gift
+              </h2>
+              <p class="mb-1" style="font-size: 0.95rem">
+                Dengan hormat, bagi Anda yang ingin memberikan tanda kasih
+                kepada kami, dapat melalui:
+              </p>
+
+              <div
+                class="bg-theme-auto rounded-4 shadow p-3 mx-4 mt-4 text-start"
+                data-aos="fade-up"
+                data-aos-duration="1500"
+              >
+                <i class="fa-solid fa-gift fa-lg"></i>
+                <p class="d-inline">Gift</p>
+                <div class="mt-2">
+                  <p class="m-0 p-0" style="font-size: 0.95rem">
+                    <i class="fa-regular fa-user fa-sm me-1"></i>Iswanda
+                  </p>
+                  <p class="m-0 p-0 mt-2" style="font-size: 0.85rem">
+                    <i class="fa-solid fa-phone-volume me-1"></i>0812345678
+                  </p>
+                  <p class="my-0 p-0 mt-2" style="font-size: 0.85rem">
+                    <i class="fa-solid fa-location-dot me-1"></i>Belakang Apotek
+                    Nusa Emas, Kediri, Lombok Barat
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Comment -->
+          <section class="bg-light-dark my-0 pb-0 pt-3" id="comment">
+            <div class="container">
+              <div class="border rounded-5 shadow p-3 mb-2">
+                <h2
+                  class="font-esthetic text-center mt-2 mb-4"
+                  style="font-size: 2.25rem"
+                >
+                  Ucapan &amp; Doa
+                </h2>
+
+                <div class="mb-3">
+                  <label for="form-name" class="form-label my-1"
+                    ><i class="fa-solid fa-person me-2"></i>Nama</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control shadow-sm rounded-4"
+                    id="form-name"
+                    placeholder="Isikan Nama Anda"
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="form-presence" class="form-label my-1"
+                    ><i class="fa-solid fa-person-circle-question me-2"></i
+                    >Presensi</label
+                  >
+                  <select
+                    class="form-select shadow-sm rounded-4"
+                    id="form-presence"
+                  >
+                    <option value="0" selected>Konfirmasi Presensi</option>
+                    <option value="1">&#9989; Datang</option>
+                    <option value="2">&#10060; Berhalangan</option>
+                  </select>
+                </div>
+
+                <div class="mb-3">
+                  <label for="form-comment" class="form-label my-1"
+                    ><i class="fa-solid fa-comment me-2"></i>Ucapan &amp;
+                    Doa</label
+                  >
+                  <textarea
+                    class="form-control shadow-sm rounded-4"
+                    id="form-comment"
+                    rows="4"
+                    placeholder="Tulis Ucapan dan Doa"
+                  ></textarea>
+                </div>
+
+                <div class="d-grid">
+                  <button
+                    class="btn btn-primary btn-sm rounded-4 shadow m-1"
+                    id="btn-send-comment"
+                  >
+                    <i class="fa-solid fa-paper-plane me-2"></i>Send
+                  </button>
+                </div>
+              </div>
+
+              <div class="py-3" id="comments"></div>
+            </div>
+          </section>
+
+          <!-- Wave Separator -->
+          <div class="svg-wrapper">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1440 320"
+              class="color-theme-svg no-gap-bottom"
+            >
+              <path
+                fill="currentColor"
+                fill-opacity="1"
+                d="M0,224L34.3,234.7C68.6,245,137,267,206,266.7C274.3,267,343,245,411,234.7C480,224,549,224,617,213.3C685.7,203,754,181,823,197.3C891.4,213,960,267,1029,266.7C1097.1,267,1166,213,1234,192C1302.9,171,1371,181,1406,186.7L1440,192L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"
+              ></path>
+            </svg>
+          </div>
+
+          <!-- End Of Invitation -->
+          <section class="bg-white-black py-2 no-gap-bottom">
+            <div class="container text-center">
+              <p class="pb-2 pt-4" style="font-size: 0.95rem">
+                Terima kasih atas perhatian dan doa restu Anda, yang menjadi
+                kebahagiaan serta kehormatan besar bagi kami.
+              </p>
+              <h2 class="font-esthetic" style="font-size: 2rem">
+                Wassalamualaikum Warahmatullahi Wabarakatuh
+              </h2>
+              <h2 class="font-arabic pt-4" style="font-size: 2rem">
+                اَلْحَمْدُ لِلّٰهِ رَبِّ الْعٰلَمِيْنَۙ
+              </h2>
+              <hr class="my-3" />
+            </div>
+          </section>
+        </main>
+
+        <!-- Navbar Bottom -->
+        <nav
+          class="navbar navbar-expand sticky-bottom rounded-top-4 border-top p-0"
+          id="navbar-menu"
+        >
+          <ul class="navbar-nav nav-justified w-100 align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">
+                <i class="fa-solid fa-house"></i>
+                <span class="d-block" style="font-size: 0.7rem">Home</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#bride">
+                <i class="fa-solid fa-user-group"></i>
+                <span class="d-block" style="font-size: 0.7rem">Mempelai</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#wedding-date">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span class="d-block" style="font-size: 0.7rem">Tanggal</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#gallery">
+                <i class="fa-solid fa-images"></i>
+                <span class="d-block" style="font-size: 0.7rem">Galeri</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#comment">
+                <i class="fa-solid fa-comments"></i>
+                <span class="d-block" style="font-size: 0.7rem">Ucapan</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
 
     <!-- Welcome Page -->
-    <div class="loading-page bg-white-black" id="welcome" style="opacity: 0;">
-        <div class="d-flex justify-content-center align-items-center vh-100 overflow-y-auto">
-            <div class="d-flex flex-column text-center">
-                <h2 class="font-esthetic mb-4" style="font-size: 2.25rem;">The Wedding Of</h2>
-                <img src="./assets/images/Background.jpg" alt="couple" class="img-center-crop rounded-circle border border-3 border-light shadow mb-4 mx-auto" style="width: 150px; height: 150px; object-fit: cover;">
-                <h2 class="font-esthetic mb-4" style="font-size: 2.25rem;">Iswanda &amp; Yulia</h2>
-                <div id="guest-name">
-                    <!-- Nama tamu akan ditampilkan di sini -->
-                </div>
-                <button type="button" class="btn btn-light shadow rounded-4 mt-3 mx-auto" id="btn-open-invitation">
-                    <i class="fa-solid fa-envelope-open fa-bounce me-2"></i>Open Invitation
-                </button>
-                <p class="mt-3 text-muted" style="font-size: 0.8rem;">
-                    <i class="fas fa-heart heart-beat me-1"></i>
-                    Untuk tamu spesial
-                </p>
-            </div>
+    <div class="loading-page bg-white-black" id="welcome" style="opacity: 0">
+      <div
+        class="d-flex justify-content-center align-items-center vh-100 overflow-y-auto"
+      >
+        <div class="d-flex flex-column text-center">
+          <h2 class="font-esthetic mb-4" style="font-size: 2.25rem">
+            The Wedding Of
+          </h2>
+          <img
+            src="./assets/images/Background.jpg"
+            alt="couple"
+            class="img-center-crop rounded-circle border border-3 border-light shadow mb-4 mx-auto"
+            style="width: 150px; height: 150px; object-fit: cover"
+          />
+          <h2 class="font-esthetic mb-4" style="font-size: 2.25rem">
+            Iswanda &amp; Yulia
+          </h2>
+          <div id="guest-name">
+            <!-- Nama tamu akan ditampilkan di sini -->
+          </div>
+          <button
+            type="button"
+            class="btn btn-light shadow rounded-4 mt-3 mx-auto"
+            id="btn-open-invitation"
+          >
+            <i class="fa-solid fa-envelope-open fa-bounce me-2"></i>Open
+            Invitation
+          </button>
+          <p class="mt-3 text-muted" style="font-size: 0.8rem">
+            <i class="fas fa-heart heart-beat me-1"></i>
+            Untuk tamu spesial
+          </p>
         </div>
+      </div>
     </div>
 
     <!-- Button Group -->
-    <div class="d-flex position-fixed flex-column" style="bottom: 10vh; right: 2vh; z-index: 1030;">
-        <button type="button" id="button-theme" class="btn bg-light-dark border btn-sm rounded-circle d-none btn-transparent shadow-sm mt-3">
-            <i class="fa-solid fa-circle-half-stroke"></i>
-        </button>
-        <button type="button" id="button-music" class="btn bg-light-dark border btn-sm rounded-circle d-none btn-transparent shadow-sm mt-3">
-            <i class="fa-solid fa-circle-pause spin-button"></i>
-        </button>
+    <div
+      class="d-flex position-fixed flex-column"
+      style="bottom: 10vh; right: 2vh; z-index: 1030"
+    >
+      <button
+        type="button"
+        id="button-theme"
+        class="btn bg-light-dark border btn-sm rounded-circle d-none btn-transparent shadow-sm mt-3"
+      >
+        <i class="fa-solid fa-circle-half-stroke"></i>
+      </button>
+      <button
+        type="button"
+        id="button-music"
+        class="btn bg-light-dark border btn-sm rounded-circle d-none btn-transparent shadow-sm mt-3"
+      >
+        <i class="fa-solid fa-circle-pause spin-button"></i>
+      </button>
     </div>
 
     <!-- Loading Page -->
-    <div class="loading-page bg-white-black" id="loading" style="opacity: 1;">
-        <div class="d-flex justify-content-center align-items-center vh-100 overflow-y-auto">
-            <div class="d-flex flex-column width-loading text-center">
-                <img src="./assets/images/icon-192x192.png" class="img-fluid mb-3 mx-auto object-fit-cover opacity-0" alt="icon" style="width: 3.5rem; height: 3.5rem;">
-                <div class="progress" role="progressbar" style="height: 0.5rem;" aria-label="progress bar">
-                    <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
-                </div>
-                <small class="d-none mt-1 text-theme-auto" id="progress-info" style="font-size: 0.8rem;">Loading invitation...</small>
-            </div>
+    <div class="loading-page bg-white-black" id="loading" style="opacity: 1">
+      <div
+        class="d-flex justify-content-center align-items-center vh-100 overflow-y-auto"
+      >
+        <div class="d-flex flex-column width-loading text-center">
+          <img
+            src="./assets/images/icon-192x192.png"
+            class="img-fluid mb-3 mx-auto object-fit-cover opacity-0"
+            alt="icon"
+            style="width: 3.5rem; height: 3.5rem"
+          />
+          <div
+            class="progress"
+            role="progressbar"
+            style="height: 0.5rem"
+            aria-label="progress bar"
+          >
+            <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+          </div>
+          <small
+            class="d-none mt-1 text-theme-auto"
+            id="progress-info"
+            style="font-size: 0.8rem"
+            >Loading invitation...</small
+          >
         </div>
+      </div>
     </div>
 
     <!-- Canvas untuk Confetti -->
-    <canvas id="confetti-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999;"></canvas>
+    <canvas
+      id="confetti-canvas"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+      "
+    ></canvas>
 
     <!-- ==================== SCRIPT TAMBAHAN YANG SUDAH DIPERBAIKI ==================== -->
     <script>
-        // ============================================
-        // DAFTAR NAMA TAMU LENGKAP (39 ORANG)
-        // ============================================
-        const guestListData = [
-            "MECAN", "JIHAN", "FAMAS", "DINI", "MILA",
-            "JUN", "KAF VAR", "ULAN", "HELMI", "RIMI", "SALMA", "ERMA", 
-            "BIDHA", "SOLIS", "IDHA", "PUTRI", "ANA", "ZINTA", "RINA", 
-            "QUUM", "PUTRI 2", "EIK INTAN", "MUNA", "EIK SO", "EIK YOU",
-            "Qadariah", "Ari", "Dila", "Alfi", "Bq kurnia widarni", 
-            "Sudir", "Rahmayani", "Ratni", "Yana", "Masrah", "Engsun", 
-            "Yati", "Titin"
-        ];
+      // ============================================
+      // DAFTAR NAMA TAMU LENGKAP (39 ORANG)
+      // ============================================
+      const guestListData = [
+        "MECAN",
+        "JIHAN",
+        "FAMAS",
+        "DINI",
+        "MILA",
+        "JUN",
+        "KAF VAR",
+        "ULAN",
+        "HELMI",
+        "RIMI",
+        "SALMA",
+        "ERMA",
+        "BIDHA",
+        "SOLIS",
+        "IDHA",
+        "PUTRI",
+        "ANA",
+        "ZINTA",
+        "RINA",
+        "QUUM",
+        "PUTRI 2",
+        "EIK INTAN",
+        "MUNA",
+        "EIK SO",
+        "EIK YOU",
+        "Qadariah",
+        "Ari",
+        "Dila",
+        "Alfi",
+        "Bq kurnia widarni",
+        "Sudir",
+        "Rahmayani",
+        "Ratni",
+        "Yana",
+        "Masrah",
+        "Engsun",
+        "Yati",
+        "Titin",
+      ];
 
-        const DOMAIN = "https://undangan-taupe.vercel.app";
+      const DOMAIN = "https://undangan-taupe.vercel.app";
 
-        // ============================================
-        // FUNGSI UNTUK MENGAMBIL PARAMETER URL
-        // ============================================
-        function getUrlParameter(name) {
-            name = name.replace(/[\[\]]/g, '\\$&');
-            const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
-            const results = regex.exec(window.location.href);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, ' '));
-        }
+      // ============================================
+      // FUNGSI UNTUK MENGAMBIL PARAMETER URL
+      // ============================================
+      function getUrlParameter(name) {
+        name = name.replace(/[\[\]]/g, "\\$&");
+        const regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+        const results = regex.exec(window.location.href);
+        if (!results) return null;
+        if (!results[2]) return "";
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+      }
 
-        // ============================================
-        // FUNGSI UNTUK MENAMPILKAN NAMA TAMU
-        // ============================================
-function displayGuestName() {
-    // Hapus parameter admin dari URL yang dilihat tamu
-    const currentUrl = new URL(window.location.href);
-    currentUrl.searchParams.delete('admin');
-    currentUrl.searchParams.delete('mode');
-    
-    let guestName = getUrlParameter('nama') || 
-                   getUrlParameter('name') || 
-                   getUrlParameter('to') || 
-                   getUrlParameter('untuk') ||
-                   'Tamu Undangan';
-    
-    // DECODE URL ENCODING (ubah %20 menjadi spasi, dll)
-    guestName = decodeURIComponent(guestName);
-    
-    const guestNameDiv = document.getElementById('guest-name');
-    if (guestNameDiv) {
-        guestNameDiv.innerHTML = `
+      // ============================================
+      // FUNGSI UNTUK MENAMPILKAN NAMA TAMU
+      // ============================================
+      function displayGuestName() {
+        // Hapus parameter admin dari URL yang dilihat tamu
+        const currentUrl = new URL(window.location.href);
+        currentUrl.searchParams.delete("admin");
+        currentUrl.searchParams.delete("mode");
+
+        let guestName =
+          getUrlParameter("nama") ||
+          getUrlParameter("name") ||
+          getUrlParameter("to") ||
+          getUrlParameter("untuk") ||
+          "Tamu Undangan";
+
+        // DECODE URL ENCODING (ubah %20 menjadi spasi, dll)
+        guestName = decodeURIComponent(guestName);
+
+        const guestNameDiv = document.getElementById("guest-name");
+        if (guestNameDiv) {
+          guestNameDiv.innerHTML = `
             <p class="mb-2" style="font-size: 1.1rem;">Kepada Yth Bapak/Ibu/Saudara/i</p>
             <h3 class="guest-name-display mt-2">
                 ${guestName}
             </h3>
         `;
-        
-        const formName = document.getElementById('form-name');
-        if (formName && !formName.value && guestName !== 'Tamu Undangan') {
+
+          const formName = document.getElementById("form-name");
+          if (formName && !formName.value && guestName !== "Tamu Undangan") {
             formName.value = guestName;
+          }
         }
-    }
-}
-        // ============================================
-        // FUNGSI UNTUK ADMIN PANEL (DIPERBAIKI TOTAL)
-        // ============================================
-        function initAdminPanel() {
-            // CEK SANGAT KETAT: hanya tampilkan jika ada password atau parameter khusus
-            const currentUrl = new URL(window.location.href);
-            const adminPassword = currentUrl.searchParams.get('admin');
-            const secretKey = 'admin123'; // Ganti dengan password yang diinginkan
-            
-            // Jika ada parameter admin dengan password yang benar
-            if (adminPassword === secretKey) {
-                document.getElementById('adminToggle').style.display = 'block';
-                updateGuestList();
-                
-                // Setup toggle admin panel
-                document.getElementById('adminToggle').addEventListener('click', function() {
-                    const panel = document.getElementById('adminPanel');
-                    panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
-                });
-                
-                // Setup search
-                document.getElementById('searchGuest').addEventListener('input', function(e) {
-                    updateGuestList(e.target.value);
-                });
-                
-                console.log('🔧 Mode Admin Aktif (Password Benar)');
-                
-                // Hapus password dari URL untuk keamanan
-                history.replaceState(null, '', removeParam('admin', window.location.href));
-            } else {
-                // SEMUA tamu biasa TIDAK melihat admin panel
-                document.getElementById('adminToggle').style.display = 'none';
-                document.getElementById('adminPanel').style.display = 'none';
-                
-                // Hapus parameter admin jika ada (untuk tamu biasa)
-                if (currentUrl.searchParams.has('admin')) {
-                    history.replaceState(null, '', removeParam('admin', window.location.href));
-                }
-            }
+      }
+      // ============================================
+      // FUNGSI UNTUK ADMIN PANEL (DIPERBAIKI TOTAL)
+      // ============================================
+      function initAdminPanel() {
+        // CEK SANGAT KETAT: hanya tampilkan jika ada password atau parameter khusus
+        const currentUrl = new URL(window.location.href);
+        const adminPassword = currentUrl.searchParams.get("admin");
+        const secretKey = "admin123"; // Ganti dengan password yang diinginkan
+
+        // Jika ada parameter admin dengan password yang benar
+        if (adminPassword === secretKey) {
+          document.getElementById("adminToggle").style.display = "block";
+          updateGuestList();
+
+          // Setup toggle admin panel
+          document
+            .getElementById("adminToggle")
+            .addEventListener("click", function () {
+              const panel = document.getElementById("adminPanel");
+              panel.style.display =
+                panel.style.display === "none" ? "block" : "none";
+            });
+
+          // Setup search
+          document
+            .getElementById("searchGuest")
+            .addEventListener("input", function (e) {
+              updateGuestList(e.target.value);
+            });
+
+          console.log("🔧 Mode Admin Aktif (Password Benar)");
+
+          // Hapus password dari URL untuk keamanan
+          history.replaceState(
+            null,
+            "",
+            removeParam("admin", window.location.href)
+          );
+        } else {
+          // SEMUA tamu biasa TIDAK melihat admin panel
+          document.getElementById("adminToggle").style.display = "none";
+          document.getElementById("adminPanel").style.display = "none";
+
+          // Hapus parameter admin jika ada (untuk tamu biasa)
+          if (currentUrl.searchParams.has("admin")) {
+            history.replaceState(
+              null,
+              "",
+              removeParam("admin", window.location.href)
+            );
+          }
+        }
+      }
+
+      // Fungsi untuk menghapus parameter dari URL
+      function removeParam(key, sourceURL) {
+        const url = new URL(sourceURL);
+        url.searchParams.delete(key);
+        return url.toString();
+      }
+
+      // ============================================
+      // FUNGSI UNTUK MEMBUAT LINK UNIK UNTUK SETIAP TAMU
+      // ============================================
+      function getGuestURL(guestName) {
+        // Buat URL baru TANPA parameter admin
+        const url = new URL(DOMAIN);
+
+        // Encode nama tamu untuk URL
+        const encodedName = encodeURIComponent(guestName);
+        url.searchParams.set("nama", encodedName);
+
+        // Tambahkan parameter unik (timestamp + hash sederhana)
+        const uniqueId =
+          Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
+        url.searchParams.set("uid", uniqueId);
+
+        return url.toString();
+      }
+
+      function updateGuestList(searchTerm = "") {
+        const guestListElement = document.getElementById("guestList");
+        let html = "";
+        let filteredGuests = guestListData;
+
+        if (searchTerm) {
+          filteredGuests = guestListData.filter((guest) =>
+            guest.toLowerCase().includes(searchTerm.toLowerCase())
+          );
         }
 
-        // Fungsi untuk menghapus parameter dari URL
-        function removeParam(key, sourceURL) {
-            const url = new URL(sourceURL);
-            url.searchParams.delete(key);
-            return url.toString();
-        }
+        filteredGuests.forEach((guest, index) => {
+          // SETIAP TAMU MENDAPAT LINK YANG BERBEDA!
+          const guestUrl = getGuestURL(guest);
 
-        // ============================================
-        // FUNGSI UNTUK MEMBUAT LINK UNIK UNTUK SETIAP TAMU
-        // ============================================
-        function getGuestURL(guestName) {
-            // Buat URL baru TANPA parameter admin
-            const url = new URL(DOMAIN);
-            
-            // Encode nama tamu untuk URL
-            const encodedName = encodeURIComponent(guestName);
-            url.searchParams.set('nama', encodedName);
-            
-            // Tambahkan parameter unik (timestamp + hash sederhana)
-            const uniqueId = Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
-            url.searchParams.set('uid', uniqueId);
-            
-            return url.toString();
-        }
-
-        function updateGuestList(searchTerm = '') {
-            const guestListElement = document.getElementById('guestList');
-            let html = '';
-            let filteredGuests = guestListData;
-            
-            if (searchTerm) {
-                filteredGuests = guestListData.filter(guest => 
-                    guest.toLowerCase().includes(searchTerm.toLowerCase())
-                );
-            }
-            
-            filteredGuests.forEach((guest, index) => {
-                // SETIAP TAMU MENDAPAT LINK YANG BERBEDA!
-                const guestUrl = getGuestURL(guest);
-                
-                // Pesan WhatsApp dengan link UNIK untuk tamu ini
-                const whatsappMessage = `Assalamu'alaikum Warahmatullahi Wabarokatuh
+          // Pesan WhatsApp dengan link UNIK untuk tamu ini
+          const whatsappMessage = `Assalamu'alaikum Warahmatullahi Wabarokatuh
 
 Kepada Yth.
 ${guest}
@@ -765,107 +1297,127 @@ Atas perhatian kami ucapkan terima kasih.
 
 Salam Hangat,
 Iswanda & Yulia`;
-                const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappMessage)}`;
-                
-                html += `
+          const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(
+            whatsappMessage
+          )}`;
+
+          html += `
                     <div class="guest-item d-flex justify-content-between align-items-center">
                         <div>
                             <strong>${index + 1}.</strong> ${guest}
                         </div>
                         <div>
                             <button class="btn btn-sm btn-outline-primary copy-btn" 
-                                    onclick="copyToClipboard('${guestUrl.replace(/'/g, "\\'")}', '${guest.replace(/'/g, "\\'")}')"
+                                    onclick="copyToClipboard('${guestUrl.replace(
+                                      /'/g,
+                                      "\\'"
+                                    )}', '${guest.replace(/'/g, "\\'")}')"
                                     title="Salin link khusus untuk ${guest}">
                                 <i class="fas fa-link"></i>
                             </button>
                             <button class="whatsapp-btn" 
-                                    onclick="openWhatsApp('${whatsappUrl.replace(/'/g, "\\'")}')"
+                                    onclick="openWhatsApp('${whatsappUrl.replace(
+                                      /'/g,
+                                      "\\'"
+                                    )}')"
                                     title="Kirim via WhatsApp ke ${guest}">
                                 <i class="fab fa-whatsapp"></i>
                             </button>
                         </div>
                     </div>
                 `;
-            });
-            
-            guestListElement.innerHTML = html || '<div class="text-center text-muted">Tidak ditemukan</div>';
-        }
+        });
 
-        function clearSearch() {
-            document.getElementById('searchGuest').value = '';
-            updateGuestList();
-        }
+        guestListElement.innerHTML =
+          html || '<div class="text-center text-muted">Tidak ditemukan</div>';
+      }
 
-        // ============================================
-        // FUNGSI BANTUAN (DIPERBAIKI)
-        // ============================================
-        function copyToClipboard(text, guestName) {
-            navigator.clipboard.writeText(text).then(() => {
-                alert(`✓ Link khusus untuk ${guestName} telah disalin!\n\n${text}`);
-            }).catch(err => {
-                console.error('Gagal menyalin: ', err);
-                // Fallback untuk browser lama
-                const textarea = document.createElement('textarea');
-                textarea.value = text;
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
-                alert(`✓ Link khusus untuk ${guestName} telah disalin!`);
-            });
-        }
+      function clearSearch() {
+        document.getElementById("searchGuest").value = "";
+        updateGuestList();
+      }
 
-        function copyAllLinks() {
-            let allLinks = `📋 DAFTAR LINK UNDANGAN KHUSUS\n`;
-            allLinks += `👰‍♀️🤵‍♂️ Iswanda & Yulia\n`;
-            allLinks += `📅 Sabtu, 27 Desember 2025\n`;
-            allLinks += `🔗 Domain: ${DOMAIN}\n\n`;
-            
-            guestListData.forEach((guest, index) => {
-                const guestUrl = getGuestURL(guest);
-                allLinks += `[${index + 1}] ${guest}\n${guestUrl}\n\n`;
-            });
-            
-            navigator.clipboard.writeText(allLinks).then(() => {
-                alert('✓ Semua link khusus berhasil disalin ke clipboard!');
-            }).catch(err => {
-                const textarea = document.createElement('textarea');
-                textarea.value = allLinks;
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
-                alert('✓ Semua link khusus berhasil disalin!');
-            });
-        }
+      // ============================================
+      // FUNGSI BANTUAN (DIPERBAIKI)
+      // ============================================
+      function copyToClipboard(text, guestName) {
+        navigator.clipboard
+          .writeText(text)
+          .then(() => {
+            alert(`✓ Link khusus untuk ${guestName} telah disalin!\n\n${text}`);
+          })
+          .catch((err) => {
+            console.error("Gagal menyalin: ", err);
+            // Fallback untuk browser lama
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            alert(`✓ Link khusus untuk ${guestName} telah disalin!`);
+          });
+      }
 
-        function generateAllLinksCSV() {
-            let csvContent = "No,Nama Tamu,Link Undangan Khusus\n";
-            
-            guestListData.forEach((guest, index) => {
-                const guestUrl = getGuestURL(guest);
-                csvContent += `${index + 1},"${guest}","${guestUrl}"\n`;
-            });
-            
-            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-            const url = URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', `daftar-link-undangan-${new Date().toISOString().slice(0,10)}.csv`);
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            alert('✓ File CSV berhasil diunduh!');
-        }
+      function copyAllLinks() {
+        let allLinks = `📋 DAFTAR LINK UNDANGAN KHUSUS\n`;
+        allLinks += `👰‍♀️🤵‍♂️ Iswanda & Yulia\n`;
+        allLinks += `📅 Sabtu, 27 Desember 2025\n`;
+        allLinks += `🔗 Domain: ${DOMAIN}\n\n`;
 
-        function generateWhatsAppMessages() {
-            let messages = `📱 PESAN WHATSAPP UNTUK SEMUA TAMU\n`;
-            messages += `=====================================\n\n`;
-            
-            guestListData.forEach((guest, index) => {
-                const guestUrl = getGuestURL(guest);
-                const message = `Assalamualaikum ${guest},
+        guestListData.forEach((guest, index) => {
+          const guestUrl = getGuestURL(guest);
+          allLinks += `[${index + 1}] ${guest}\n${guestUrl}\n\n`;
+        });
+
+        navigator.clipboard
+          .writeText(allLinks)
+          .then(() => {
+            alert("✓ Semua link khusus berhasil disalin ke clipboard!");
+          })
+          .catch((err) => {
+            const textarea = document.createElement("textarea");
+            textarea.value = allLinks;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            alert("✓ Semua link khusus berhasil disalin!");
+          });
+      }
+
+      function generateAllLinksCSV() {
+        let csvContent = "No,Nama Tamu,Link Undangan Khusus\n";
+
+        guestListData.forEach((guest, index) => {
+          const guestUrl = getGuestURL(guest);
+          csvContent += `${index + 1},"${guest}","${guestUrl}"\n`;
+        });
+
+        const blob = new Blob([csvContent], {
+          type: "text/csv;charset=utf-8;",
+        });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute(
+          "download",
+          `daftar-link-undangan-${new Date().toISOString().slice(0, 10)}.csv`
+        );
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        alert("✓ File CSV berhasil diunduh!");
+      }
+
+      function generateWhatsAppMessages() {
+        let messages = `📱 PESAN WHATSAPP UNTUK SEMUA TAMU\n`;
+        messages += `=====================================\n\n`;
+
+        guestListData.forEach((guest, index) => {
+          const guestUrl = getGuestURL(guest);
+          const message = `Assalamualaikum ${guest},
 
 Kami mengundang Anda untuk menghadiri acara pernikahan kami:
 
@@ -878,567 +1430,598 @@ ${guestUrl}
 
 Terima kasih.
 Wassalamualaikum Warahmatullahi Wabarakatuh.`;
-                
-                messages += `--- [${index + 1}] Untuk: ${guest} ---\n`;
-                messages += `${message}\n\n`;
-                messages += `=====================================\n\n`;
-            });
-            
-            navigator.clipboard.writeText(messages).then(() => {
-                alert('✓ Semua template pesan WhatsApp telah disalin ke clipboard!');
-            }).catch(err => {
-                const textarea = document.createElement('textarea');
-                textarea.value = messages;
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
-                alert('✓ Semua template pesan WhatsApp telah disalin!');
-            });
-        }
 
-        function openWhatsApp(url) {
-            window.open(url, '_blank', 'noopener,noreferrer');
-        }
-
-        // ============================================
-        // INISIALISASI SAAT HALAMAN DIMUAT
-        // ============================================
-        document.addEventListener('DOMContentLoaded', function() {
-            // Tampilkan nama tamu
-            displayGuestName();
-            
-            // Inisialisasi admin panel DENGAN PASSWORD
-            initAdminPanel();
-            
-            // ============================================
-            // FUNGSI-FUNGSI LAINNYA (TIDAK BERUBAH)
-            // ============================================
-            
-            // Animasi Loading Progress Bar
-            function initLoadingProgress() {
-                const progressBar = document.getElementById('progress-bar');
-                const progressInfo = document.getElementById('progress-info');
-                const loadingIcon = document.querySelector('#loading img');
-                
-                if (progressBar && progressInfo) {
-                    progressInfo.classList.remove('d-none');
-                    
-                    if (loadingIcon) {
-                        loadingIcon.style.transition = 'opacity 0.5s ease';
-                        loadingIcon.style.opacity = '1';
-                    }
-                    
-                    let progress = 0;
-                    const messages = [
-                        "Loading assets...",
-                        "Preparing invitation...",
-                        "Almost ready...",
-                        "Welcome!"
-                    ];
-                    
-                    const interval = setInterval(() => {
-                        progress += Math.random() * 20;
-                        if (progress > 100) progress = 100;
-                        
-                        progressBar.style.width = `${progress}%`;
-                        
-                        // Update progress message
-                        if (progress < 25) {
-                            progressInfo.textContent = messages[0];
-                        } else if (progress < 50) {
-                            progressInfo.textContent = messages[1];
-                        } else if (progress < 75) {
-                            progressInfo.textContent = messages[2];
-                        } else {
-                            progressInfo.textContent = messages[3];
-                        }
-                        
-                        if (progress >= 100) {
-                            clearInterval(interval);
-                            setTimeout(() => {
-                                const loading = document.getElementById('loading');
-                                const welcome = document.getElementById('welcome');
-                                
-                                if (loading) {
-                                    loading.style.transition = 'opacity 0.5s ease';
-                                    loading.style.opacity = '0';
-                                    setTimeout(() => loading.style.display = 'none', 500);
-                                }
-                                
-                                if (welcome) {
-                                    welcome.style.transition = 'opacity 0.5s ease';
-                                    welcome.style.opacity = '1';
-                                    
-                                    // Tampilkan nama tamu setelah welcome page muncul
-                                    displayGuestName();
-                                }
-                            }, 500);
-                        }
-                    }, 200);
-                } else {
-                    // Fallback jika progress bar tidak ada
-                    setTimeout(function() {
-                        const loading = document.getElementById('loading');
-                        const welcome = document.getElementById('welcome');
-                        
-                        if (loading) {
-                            loading.style.transition = 'opacity 0.5s ease';
-                            loading.style.opacity = '0';
-                            setTimeout(() => loading.style.display = 'none', 500);
-                        }
-                        
-                        if (welcome) {
-                            welcome.style.transition = 'opacity 0.5s ease';
-                            welcome.style.opacity = '1';
-                            
-                            // Tampilkan nama tamu setelah welcome page muncul
-                            displayGuestName();
-                        }
-                    }, 1500);
-                }
-            }
-
-            // Inisialisasi Animasi Love
-            function initLoveAnimations() {
-                const loveIcons = document.querySelectorAll('[data-class="animate-love"]');
-                
-                loveIcons.forEach(icon => {
-                    const delay = icon.getAttribute('data-time') || '2000';
-                    icon.style.animationDelay = `${delay}ms`;
-                    icon.classList.add('animate-love');
-                });
-            }
-
-            // Animasi Slide Desktop
-            function initDesktopSlides() {
-                const slides = document.querySelectorAll('.slide-desktop');
-                let currentSlide = 0;
-                
-                if (slides.length > 0) {
-                    // Set initial state
-                    slides[0].style.opacity = '1';
-                    
-                    setInterval(() => {
-                        slides.forEach((slide, index) => {
-                            slide.style.transition = 'opacity 1s ease-in-out';
-                            slide.style.opacity = index === currentSlide ? '1' : '0';
-                        });
-                        
-                        currentSlide = (currentSlide + 1) % slides.length;
-                    }, 3000);
-                }
-            }
-
-            // Animate On Scroll (AOS)
-            function initAOS() {
-                const elements = document.querySelectorAll('[data-aos]');
-                
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('aos-animate');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, {
-                    threshold: 0.1,
-                    rootMargin: '0px 0px -50px 0px'
-                });
-                
-                elements.forEach(element => {
-                    observer.observe(element);
-                });
-            }
-
-            // Confetti Animation
-            function launchConfetti() {
-                const canvas = document.getElementById('confetti-canvas');
-                if (!canvas) return;
-                
-                const confettiSettings = {
-                    particleCount: 150,
-                    spread: 70,
-                    origin: { y: 0.6 }
-                };
-                
-                // Multiple bursts for better effect
-                confetti(confettiSettings);
-                
-                setTimeout(() => {
-                    confetti({
-                        ...confettiSettings,
-                        angle: 60,
-                        origin: { x: 0, y: 0.6 }
-                    });
-                }, 250);
-                
-                setTimeout(() => {
-                    confetti({
-                        ...confettiSettings,
-                        angle: 120,
-                        origin: { x: 1, y: 0.6 }
-                    });
-                }, 500);
-            }
-
-            // Countdown Timer
-            function updateCountdown() {
-                const weddingDate = new Date('2025-12-27 09:30:00').getTime();
-                const now = new Date().getTime();
-                const distance = weddingDate - now;
-
-                if (distance < 0) {
-                    document.getElementById('day').textContent = '0';
-                    document.getElementById('hour').textContent = '0';
-                    document.getElementById('minute').textContent = '0';
-                    document.getElementById('second').textContent = '0';
-                    return;
-                }
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                document.getElementById('day').textContent = days;
-                document.getElementById('hour').textContent = hours;
-                document.getElementById('minute').textContent = minutes;
-                document.getElementById('second').textContent = seconds;
-            }
-
-            // Open Invitation Button Handler
-            function setupOpenInvitation() {
-                const btnOpen = document.getElementById('btn-open-invitation');
-                if (btnOpen) {
-                    btnOpen.addEventListener('click', function() {
-                        const welcome = document.getElementById('welcome');
-                        const root = document.getElementById('root');
-                        const buttonMusic = document.getElementById('button-music');
-                        const buttonTheme = document.getElementById('button-theme');
-                        
-                        if (welcome) {
-                            welcome.style.transition = 'opacity 0.5s ease';
-                            welcome.style.opacity = '0';
-                            setTimeout(() => welcome.style.display = 'none', 500);
-                        }
-                        
-                        if (root) {
-                            root.classList.remove('opacity-0');
-                            root.style.transition = 'opacity 0.5s ease';
-                            root.style.opacity = '1';
-                        }
-                        
-                        if (buttonMusic) buttonMusic.classList.remove('d-none');
-                        if (buttonTheme) buttonTheme.classList.remove('d-none');
-                        
-                        // Launch confetti if enabled
-                        if (document.body.getAttribute('data-confetti') === 'true') {
-                            launchConfetti();
-                        }
-                        
-                        // Try to play audio
-                        try {
-                            const audioSrc = document.body.getAttribute('data-audio');
-                            if (audioSrc) {
-                                const audio = new Audio(audioSrc);
-                                audio.loop = true;
-                                audio.volume = 0.5;
-                                
-                                // Music button toggle
-                                if (buttonMusic) {
-                                    buttonMusic.addEventListener('click', function() {
-                                        if (audio.paused) {
-                                            audio.play();
-                                            this.querySelector('i').className = 'fa-solid fa-circle-pause spin-button';
-                                        } else {
-                                            audio.pause();
-                                            this.querySelector('i').className = 'fa-solid fa-circle-play';
-                                        }
-                                    });
-                                }
-                                
-                                // Auto play with user interaction
-                                audio.play().catch(e => console.log('Audio autoplay blocked:', e));
-                            }
-                        } catch (e) {
-                            console.log('Audio error:', e);
-                        }
-                        
-                        // Initialize AOS after opening
-                        setTimeout(initAOS, 100);
-                    });
-                }
-            }
-
-            // Theme Toggle
-            function setupThemeToggle() {
-                const btnTheme = document.getElementById('button-theme');
-                if (btnTheme) {
-                    btnTheme.addEventListener('click', function() {
-                        const html = document.documentElement;
-                        const currentTheme = html.getAttribute('data-bs-theme');
-                        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                        html.setAttribute('data-bs-theme', newTheme);
-                        
-                        // Save preference
-                        localStorage.setItem('theme', newTheme);
-                    });
-                    
-                    // Load saved theme
-                    const savedTheme = localStorage.getItem('theme');
-                    if (savedTheme) {
-                        document.documentElement.setAttribute('data-bs-theme', savedTheme);
-                    }
-                }
-            }
-
-            // Initialize everything when DOM is loaded
-            initLoadingProgress();
-            
-            // Initialize other animations
-            setTimeout(() => {
-                initLoveAnimations();
-                initDesktopSlides();
-                initAOS();
-                setupOpenInvitation();
-                setupThemeToggle();
-                
-                // Set up countdown timer
-                updateCountdown();
-                setInterval(updateCountdown, 1000);
-                
-                // Initialize Bootstrap carousel if exists
-                const carousels = document.querySelectorAll('.carousel');
-                carousels.forEach(carousel => {
-                    new bootstrap.Carousel(carousel, {
-                        interval: 5000,
-                        wrap: true
-                    });
-                });
-                
-                // Smooth scroll for navbar links
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        const targetId = this.getAttribute('href');
-                        if (targetId === '#') return;
-                        
-                        const targetElement = document.querySelector(targetId);
-                        if (targetElement) {
-                            window.scrollTo({
-                                top: targetElement.offsetTop - 50,
-                                behavior: 'smooth'
-                            });
-                        }
-                    });
-                });
-            }, 100);
+          messages += `--- [${index + 1}] Untuk: ${guest} ---\n`;
+          messages += `${message}\n\n`;
+          messages += `=====================================\n\n`;
         });
+
+        navigator.clipboard
+          .writeText(messages)
+          .then(() => {
+            alert(
+              "✓ Semua template pesan WhatsApp telah disalin ke clipboard!"
+            );
+          })
+          .catch((err) => {
+            const textarea = document.createElement("textarea");
+            textarea.value = messages;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            alert("✓ Semua template pesan WhatsApp telah disalin!");
+          });
+      }
+
+      function openWhatsApp(url) {
+        window.open(url, "_blank", "noopener,noreferrer");
+      }
+
+      // ============================================
+      // INISIALISASI SAAT HALAMAN DIMUAT
+      // ============================================
+      document.addEventListener("DOMContentLoaded", function () {
+        // Tampilkan nama tamu
+        displayGuestName();
+
+        // Inisialisasi admin panel DENGAN PASSWORD
+        initAdminPanel();
+
+        // ============================================
+        // FUNGSI-FUNGSI LAINNYA (TIDAK BERUBAH)
+        // ============================================
+
+        // Animasi Loading Progress Bar
+        function initLoadingProgress() {
+          const progressBar = document.getElementById("progress-bar");
+          const progressInfo = document.getElementById("progress-info");
+          const loadingIcon = document.querySelector("#loading img");
+
+          if (progressBar && progressInfo) {
+            progressInfo.classList.remove("d-none");
+
+            if (loadingIcon) {
+              loadingIcon.style.transition = "opacity 0.5s ease";
+              loadingIcon.style.opacity = "1";
+            }
+
+            let progress = 0;
+            const messages = [
+              "Loading assets...",
+              "Preparing invitation...",
+              "Almost ready...",
+              "Welcome!",
+            ];
+
+            const interval = setInterval(() => {
+              progress += Math.random() * 20;
+              if (progress > 100) progress = 100;
+
+              progressBar.style.width = `${progress}%`;
+
+              // Update progress message
+              if (progress < 25) {
+                progressInfo.textContent = messages[0];
+              } else if (progress < 50) {
+                progressInfo.textContent = messages[1];
+              } else if (progress < 75) {
+                progressInfo.textContent = messages[2];
+              } else {
+                progressInfo.textContent = messages[3];
+              }
+
+              if (progress >= 100) {
+                clearInterval(interval);
+                setTimeout(() => {
+                  const loading = document.getElementById("loading");
+                  const welcome = document.getElementById("welcome");
+
+                  if (loading) {
+                    loading.style.transition = "opacity 0.5s ease";
+                    loading.style.opacity = "0";
+                    setTimeout(() => (loading.style.display = "none"), 500);
+                  }
+
+                  if (welcome) {
+                    welcome.style.transition = "opacity 0.5s ease";
+                    welcome.style.opacity = "1";
+
+                    // Tampilkan nama tamu setelah welcome page muncul
+                    displayGuestName();
+                  }
+                }, 500);
+              }
+            }, 200);
+          } else {
+            // Fallback jika progress bar tidak ada
+            setTimeout(function () {
+              const loading = document.getElementById("loading");
+              const welcome = document.getElementById("welcome");
+
+              if (loading) {
+                loading.style.transition = "opacity 0.5s ease";
+                loading.style.opacity = "0";
+                setTimeout(() => (loading.style.display = "none"), 500);
+              }
+
+              if (welcome) {
+                welcome.style.transition = "opacity 0.5s ease";
+                welcome.style.opacity = "1";
+
+                // Tampilkan nama tamu setelah welcome page muncul
+                displayGuestName();
+              }
+            }, 1500);
+          }
+        }
+
+        // Inisialisasi Animasi Love
+        function initLoveAnimations() {
+          const loveIcons = document.querySelectorAll(
+            '[data-class="animate-love"]'
+          );
+
+          loveIcons.forEach((icon) => {
+            const delay = icon.getAttribute("data-time") || "2000";
+            icon.style.animationDelay = `${delay}ms`;
+            icon.classList.add("animate-love");
+          });
+        }
+
+        // Animasi Slide Desktop
+        function initDesktopSlides() {
+          const slides = document.querySelectorAll(".slide-desktop");
+          let currentSlide = 0;
+
+          if (slides.length > 0) {
+            // Set initial state
+            slides[0].style.opacity = "1";
+
+            setInterval(() => {
+              slides.forEach((slide, index) => {
+                slide.style.transition = "opacity 1s ease-in-out";
+                slide.style.opacity = index === currentSlide ? "1" : "0";
+              });
+
+              currentSlide = (currentSlide + 1) % slides.length;
+            }, 3000);
+          }
+        }
+
+        // Animate On Scroll (AOS)
+        function initAOS() {
+          const elements = document.querySelectorAll("[data-aos]");
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("aos-animate");
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            {
+              threshold: 0.1,
+              rootMargin: "0px 0px -50px 0px",
+            }
+          );
+
+          elements.forEach((element) => {
+            observer.observe(element);
+          });
+        }
+
+        // Confetti Animation
+        function launchConfetti() {
+          const canvas = document.getElementById("confetti-canvas");
+          if (!canvas) return;
+
+          const confettiSettings = {
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 },
+          };
+
+          // Multiple bursts for better effect
+          confetti(confettiSettings);
+
+          setTimeout(() => {
+            confetti({
+              ...confettiSettings,
+              angle: 60,
+              origin: { x: 0, y: 0.6 },
+            });
+          }, 250);
+
+          setTimeout(() => {
+            confetti({
+              ...confettiSettings,
+              angle: 120,
+              origin: { x: 1, y: 0.6 },
+            });
+          }, 500);
+        }
+
+        // Countdown Timer
+        function updateCountdown() {
+          const weddingDate = new Date("2025-12-27 09:30:00").getTime();
+          const now = new Date().getTime();
+          const distance = weddingDate - now;
+
+          if (distance < 0) {
+            document.getElementById("day").textContent = "0";
+            document.getElementById("hour").textContent = "0";
+            document.getElementById("minute").textContent = "0";
+            document.getElementById("second").textContent = "0";
+            return;
+          }
+
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor(
+            (distance % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          document.getElementById("day").textContent = days;
+          document.getElementById("hour").textContent = hours;
+          document.getElementById("minute").textContent = minutes;
+          document.getElementById("second").textContent = seconds;
+        }
+
+        // Open Invitation Button Handler
+        function setupOpenInvitation() {
+          const btnOpen = document.getElementById("btn-open-invitation");
+          if (btnOpen) {
+            btnOpen.addEventListener("click", function () {
+              const welcome = document.getElementById("welcome");
+              const root = document.getElementById("root");
+              const buttonMusic = document.getElementById("button-music");
+              const buttonTheme = document.getElementById("button-theme");
+
+              if (welcome) {
+                welcome.style.transition = "opacity 0.5s ease";
+                welcome.style.opacity = "0";
+                setTimeout(() => (welcome.style.display = "none"), 500);
+              }
+
+              if (root) {
+                root.classList.remove("opacity-0");
+                root.style.transition = "opacity 0.5s ease";
+                root.style.opacity = "1";
+              }
+
+              if (buttonMusic) buttonMusic.classList.remove("d-none");
+              if (buttonTheme) buttonTheme.classList.remove("d-none");
+
+              // Launch confetti if enabled
+              if (document.body.getAttribute("data-confetti") === "true") {
+                launchConfetti();
+              }
+
+              // Try to play audio
+              try {
+                const audioSrc = document.body.getAttribute("data-audio");
+                if (audioSrc) {
+                  const audio = new Audio(audioSrc);
+                  audio.loop = true;
+                  audio.volume = 0.5;
+
+                  // Music button toggle
+                  if (buttonMusic) {
+                    buttonMusic.addEventListener("click", function () {
+                      if (audio.paused) {
+                        audio.play();
+                        this.querySelector("i").className =
+                          "fa-solid fa-circle-pause spin-button";
+                      } else {
+                        audio.pause();
+                        this.querySelector("i").className =
+                          "fa-solid fa-circle-play";
+                      }
+                    });
+                  }
+
+                  // Auto play with user interaction
+                  audio
+                    .play()
+                    .catch((e) => console.log("Audio autoplay blocked:", e));
+                }
+              } catch (e) {
+                console.log("Audio error:", e);
+              }
+
+              // Initialize AOS after opening
+              setTimeout(initAOS, 100);
+            });
+          }
+        }
+
+        // Theme Toggle
+        function setupThemeToggle() {
+          const btnTheme = document.getElementById("button-theme");
+          if (btnTheme) {
+            btnTheme.addEventListener("click", function () {
+              const html = document.documentElement;
+              const currentTheme = html.getAttribute("data-bs-theme");
+              const newTheme = currentTheme === "dark" ? "light" : "dark";
+              html.setAttribute("data-bs-theme", newTheme);
+
+              // Save preference
+              localStorage.setItem("theme", newTheme);
+            });
+
+            // Load saved theme
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme) {
+              document.documentElement.setAttribute(
+                "data-bs-theme",
+                savedTheme
+              );
+            }
+          }
+        }
+
+        // Initialize everything when DOM is loaded
+        initLoadingProgress();
+
+        // Initialize other animations
+        setTimeout(() => {
+          initLoveAnimations();
+          initDesktopSlides();
+          initAOS();
+          setupOpenInvitation();
+          setupThemeToggle();
+
+          // Set up countdown timer
+          updateCountdown();
+          setInterval(updateCountdown, 1000);
+
+          // Initialize Bootstrap carousel if exists
+          const carousels = document.querySelectorAll(".carousel");
+          carousels.forEach((carousel) => {
+            new bootstrap.Carousel(carousel, {
+              interval: 5000,
+              wrap: true,
+            });
+          });
+
+          // Smooth scroll for navbar links
+          document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+              e.preventDefault();
+              const targetId = this.getAttribute("href");
+              if (targetId === "#") return;
+
+              const targetElement = document.querySelector(targetId);
+              if (targetElement) {
+                window.scrollTo({
+                  top: targetElement.offsetTop - 50,
+                  behavior: "smooth",
+                });
+              }
+            });
+          });
+        }, 100);
+      });
     </script>
     <!-- ==================== END SCRIPT TAMBAHAN ==================== -->
 
     <!-- ==================== GOOGLE APPS SCRIPT UCAPAN ==================== -->
     <script>
-    // ============================================
-    // KONFIGURASI GOOGLE APPS SCRIPT
-    // ============================================
-    const API_URL = "https://script.google.com/macros/s/AKfycbxPopt3ycr-Zady_3SrD-CVNlzo8wSgD6CsPDaGfYMK55m359EoeDb5ft-oyYjnauFP/exec";
+      // ============================================
+      // KONFIGURASI GOOGLE APPS SCRIPT
+      // ============================================
+      const API_URL =
+        "https://script.google.com/macros/s/AKfycbxPopt3ycr-Zady_3SrD-CVNlzo8wSgD6CsPDaGfYMK55m359EoeDb5ft-oyYjnauFP/exec";
 
-    // ============================================
-    // FUNGSI UNTUK MEMUAT UCAPAN DARI GOOGLE SHEETS
-    // ============================================
-    async function loadComments() {
+      // ============================================
+      // FUNGSI UNTUK MEMUAT UCAPAN DARI GOOGLE SHEETS
+      // ============================================
+      async function loadComments() {
         try {
-            console.log("Memuat komentar dari API...");
-            
-            const response = await fetch(API_URL);
-            console.log("Response status:", response.status);
-            
-            const comments = await response.json();
-            console.log("Data diterima:", comments);
-            
-            const container = document.getElementById("comments");
-            if (!container) {
-                console.error("Element #comments tidak ditemukan!");
-                return;
-            }
-            
-            container.innerHTML = "";
-            
-            if (comments.length === 0) {
-                container.innerHTML = '<p class="text-center text-muted">Belum ada ucapan. Jadilah yang pertama!</p>';
-                return;
-            }
-            
-            // Tampilkan dari yang terbaru
-            comments.reverse().forEach((item, index) => {
-                console.log(`Komentar ${index + 1}:`, item);
-                
-                const commentHTML = `
+          console.log("Memuat komentar dari API...");
+
+          const response = await fetch(API_URL);
+          console.log("Response status:", response.status);
+
+          const comments = await response.json();
+          console.log("Data diterima:", comments);
+
+          const container = document.getElementById("comments");
+          if (!container) {
+            console.error("Element #comments tidak ditemukan!");
+            return;
+          }
+
+          container.innerHTML = "";
+
+          if (comments.length === 0) {
+            container.innerHTML =
+              '<p class="text-center text-muted">Belum ada ucapan. Jadilah yang pertama!</p>';
+            return;
+          }
+
+          // Tampilkan dari yang terbaru
+          comments.reverse().forEach((item, index) => {
+            console.log(`Komentar ${index + 1}:`, item);
+
+            const commentHTML = `
                     <div class="border rounded-4 shadow-sm p-3 mb-3 bg-white">
-                        <h6 class="fw-bold mb-1">${escapeHtml(item.Nama || 'Tamu')}</h6>
+                        <h6 class="fw-bold mb-1">${escapeHtml(
+                          item.Nama || "Tamu"
+                        )}</h6>
                         <p class="mb-1">
                             <small>
-                                ${item.Presensi === '✅ Datang' ? '✅' : '❌'} 
-                                ${escapeHtml(item.Presensi || 'Belum konfirmasi')}
+                                ${item.Presensi === "✅ Datang" ? "✅" : "❌"} 
+                                ${escapeHtml(
+                                  item.Presensi || "Belum konfirmasi"
+                                )}
                             </small>
                         </p>
-                        <p class="mb-2">${escapeHtml(item.Ucapan || '')}</p>
-                        <small class="text-muted">${escapeHtml(item.Tanggal || '')}</small>
+                        <p class="mb-2">${escapeHtml(item.Ucapan || "")}</p>
+                        <small class="text-muted">${escapeHtml(
+                          item.Tanggal || ""
+                        )}</small>
                     </div>
                 `;
-                container.innerHTML += commentHTML;
-            });
-            
-            console.log(`Menampilkan ${comments.length} komentar`);
-            
-        } catch (error) {
-            console.error("Gagal memuat ucapan:", error);
-            const container = document.getElementById("comments");
-            if (container) {
-                container.innerHTML = '<p class="text-center text-danger">Gagal memuat ucapan. Coba refresh halaman.</p>';
-            }
-        }
-    }
+            container.innerHTML += commentHTML;
+          });
 
-    // ============================================
-    // FUNGSI UNTUK MENGIRIM UCAPAN BARU
-    // ============================================
-    async function sendComment() {
+          console.log(`Menampilkan ${comments.length} komentar`);
+        } catch (error) {
+          console.error("Gagal memuat ucapan:", error);
+          const container = document.getElementById("comments");
+          if (container) {
+            container.innerHTML =
+              '<p class="text-center text-danger">Gagal memuat ucapan. Coba refresh halaman.</p>';
+          }
+        }
+      }
+
+      // ============================================
+      // FUNGSI UNTUK MENGIRIM UCAPAN BARU
+      // ============================================
+      async function sendComment() {
         // Ambil nilai form
         const nameInput = document.getElementById("form-name");
         const presenceSelect = document.getElementById("form-presence");
         const commentInput = document.getElementById("form-comment");
-        
+
         if (!nameInput || !presenceSelect || !commentInput) {
-            alert("Form tidak ditemukan!");
-            return;
+          alert("Form tidak ditemukan!");
+          return;
         }
-        
+
         const name = nameInput.value.trim();
-        const presenceText = presenceSelect.options[presenceSelect.selectedIndex].text;
+        const presenceText =
+          presenceSelect.options[presenceSelect.selectedIndex].text;
         const comment = commentInput.value.trim();
-        
+
         // Validasi
         if (!name) {
-            alert("Harap isi nama Anda!");
-            nameInput.focus();
-            return;
+          alert("Harap isi nama Anda!");
+          nameInput.focus();
+          return;
         }
-        
+
         if (!comment) {
-            alert("Harap tulis ucapan dan doa!");
-            commentInput.focus();
-            return;
+          alert("Harap tulis ucapan dan doa!");
+          commentInput.focus();
+          return;
         }
-        
+
         // Data yang akan dikirim (pastikan nama field sama dengan di Apps Script)
         const data = {
-            nama: name,
-            presensi: presenceText,
-            ucapan: comment
+          nama: name,
+          presensi: presenceText,
+          ucapan: comment,
         };
-        
-        console.log("Mengirim data:", data);
-        
-        try {
-            // Tampilkan loading
-            const btn = document.getElementById("btn-send-comment");
-            if (btn) {
-                const originalHTML = btn.innerHTML;
-                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2"></i>Mengirim...';
-                btn.disabled = true;
-                
-                // Kirim ke API Google Apps Script
-                const response = await fetch(API_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
-                
-                // Baca response
-                const result = await response.json();
-                console.log("Response dari server:", result);
-                
-                if (result.status === "success") {
-                    // Reset form
-                    nameInput.value = "";
-                    presenceSelect.selectedIndex = 0;
-                    commentInput.value = "";
-                    
-                    // Tunggu sebentar lalu muat ulang komentar
-                    setTimeout(async () => {
-                        await loadComments();
-                        alert("✅ Ucapan Anda telah terkirim! Terima kasih.");
-                        
-                        // Reset button
-                        btn.innerHTML = originalHTML;
-                        btn.disabled = false;
-                    }, 1000);
-                    
-                } else {
-                    alert("❌ Gagal mengirim: " + result.message);
-                    btn.innerHTML = originalHTML;
-                    btn.disabled = false;
-                }
-            }
-            
-        } catch (error) {
-            console.error("Error:", error);
-            alert("⚠️ Terjadi kesalahan. Silakan coba lagi atau refresh halaman.");
-            
-            // Reset button jika error
-            const btn = document.getElementById("btn-send-comment");
-            if (btn) {
-                btn.innerHTML = '<i class="fa-solid fa-paper-plane me-2"></i>Send';
-                btn.disabled = false;
-            }
-        }
-    }
 
-    // ============================================
-    // FUNGSI BANTUAN: MENCEGAH XSS
-    // ============================================
-    function escapeHtml(text) {
-        const div = document.createElement('div');
+        console.log("Mengirim data:", data);
+
+        try {
+          // Tampilkan loading
+          const btn = document.getElementById("btn-send-comment");
+          if (btn) {
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML =
+              '<i class="fa-solid fa-spinner fa-spin me-2"></i>Mengirim...';
+            btn.disabled = true;
+
+            // Kirim ke API Google Apps Script
+            const response = await fetch(API_URL, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+            });
+
+            // Baca response
+            const result = await response.json();
+            console.log("Response dari server:", result);
+
+            if (result.status === "success") {
+              // Reset form
+              nameInput.value = "";
+              presenceSelect.selectedIndex = 0;
+              commentInput.value = "";
+
+              // Tunggu sebentar lalu muat ulang komentar
+              setTimeout(async () => {
+                await loadComments();
+                alert("✅ Ucapan Anda telah terkirim! Terima kasih.");
+
+                // Reset button
+                btn.innerHTML = originalHTML;
+                btn.disabled = false;
+              }, 1000);
+            } else {
+              alert("❌ Gagal mengirim: " + result.message);
+              btn.innerHTML = originalHTML;
+              btn.disabled = false;
+            }
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert(
+            "⚠️ Terjadi kesalahan. Silakan coba lagi atau refresh halaman."
+          );
+
+          // Reset button jika error
+          const btn = document.getElementById("btn-send-comment");
+          if (btn) {
+            btn.innerHTML = '<i class="fa-solid fa-paper-plane me-2"></i>Send';
+            btn.disabled = false;
+          }
+        }
+      }
+
+      // ============================================
+      // FUNGSI BANTUAN: MENCEGAH XSS
+      // ============================================
+      function escapeHtml(text) {
+        const div = document.createElement("div");
         div.textContent = text;
         return div.innerHTML;
-    }
+      }
 
-    // ============================================
-    // INISIALISASI UCAPAN SAAT HALAMAN DIMUAT
-    // ============================================
-    function initCommentSystem() {
+      // ============================================
+      // INISIALISASI UCAPAN SAAT HALAMAN DIMUAT
+      // ============================================
+      function initCommentSystem() {
         // Muat ucapan saat halaman dibuka
         loadComments();
-        
+
         // Hubungkan tombol kirim
         const sendButton = document.getElementById("btn-send-comment");
         if (sendButton) {
-            sendButton.addEventListener("click", sendComment);
+          sendButton.addEventListener("click", sendComment);
         }
-        
+
         // Bisa juga submit dengan Enter di textarea
         const commentTextarea = document.getElementById("form-comment");
         if (commentTextarea) {
-            commentTextarea.addEventListener("keydown", function(e) {
-                if (e.ctrlKey && e.key === 'Enter') {
-                    sendComment();
-                }
-            });
+          commentTextarea.addEventListener("keydown", function (e) {
+            if (e.ctrlKey && e.key === "Enter") {
+              sendComment();
+            }
+          });
         }
-    }
+      }
 
-    // Panggil fungsi inisialisasi saat DOM siap
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initCommentSystem);
-    } else {
+      // Panggil fungsi inisialisasi saat DOM siap
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initCommentSystem);
+      } else {
         initCommentSystem();
-    }
+      }
     </script>
     <!-- ==================== END GOOGLE APPS SCRIPT UCAPAN ==================== -->
-</body>
+  </body>
 </html>
